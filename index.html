@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#111827" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="format-detection" content="telephone=no" />
+<link rel="manifest" href="./manifest.webmanifest" />
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111827'/%3E%3Cpath d='M23 23c0-12 18-12 18 0h-5c0-6-8-6-8 0zm-5 3h28l5 25H13z' fill='%23ea580c'/%3E%3C/svg%3E" />
+<title>Kettlebell 2027 Training Program</title>
+<style>
+:root{
+  --bg:#f4f5f7; --panel:#ffffff; --panel2:#f8fafc; --text:#111827; --muted:#667085;
+  --line:#e5e7eb; --dark:#111827; --accent:#c2410c; --accent2:#ea580c; --ok:#067647;
+  --p1:#9a3412; --p2:#b45309; --p3:#0369a1; --p4:#6d28d9; --p5:#be123c; --p6:#166534;
+  --shadow:0 10px 28px rgba(17,24,39,.08); --radius:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.42}
+button,select,textarea,input{font:inherit}
+button{cursor:pointer}
+.app{max-width:1180px;margin:auto;padding-bottom:92px}
+.hero{background:linear-gradient(135deg,#111827,#1f2937);color:#fff;padding:22px 18px 20px;position:sticky;top:0;z-index:20;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+.hero-inner{max-width:1180px;margin:auto;display:flex;gap:16px;align-items:center;justify-content:space-between}
+.brand h1{font-size:clamp(20px,4vw,30px);margin:0 0 2px;font-weight:800;letter-spacing:-.02em}.brand p{margin:0;color:#cbd5e1;font-size:13px}
+.hero-actions{display:flex;gap:8px}.ghost{border:1px solid #475569;background:#1f2937;color:white;border-radius:12px;padding:9px 12px;font-size:13px}
+.content{padding:18px}.view{display:none}.view.active{display:block}
+.top-nav{display:none;gap:8px;margin-bottom:16px}.top-nav button{border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 14px;font-weight:700;color:#475467}.top-nav button.active{background:var(--dark);color:white;border-color:var(--dark)}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:4px 0 14px}.section-head h2{margin:0;font-size:24px;letter-spacing:-.02em}.section-head p{margin:3px 0 0;color:var(--muted);font-size:13px}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);font-weight:800}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}.metric{padding:15px}.metric .k{font-size:11px;color:var(--muted);text-transform:uppercase;font-weight:800;letter-spacing:.08em}.metric .v{font-size:24px;font-weight:850;margin-top:3px}.metric .s{font-size:12px;color:var(--muted)}
+.phase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.phase{padding:16px;position:relative;overflow:hidden}.phase:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--pc)}.phase-num{font-size:11px;font-weight:800;color:var(--pc);text-transform:uppercase;letter-spacing:.08em}.phase h3{margin:5px 0 3px;font-size:18px}.phase .date{color:var(--muted);font-size:12px}.phase p{font-size:13px;margin:10px 0;color:#344054}.pill-row{display:flex;gap:6px;flex-wrap:wrap}.pill{font-size:11px;border-radius:999px;padding:5px 8px;background:#f2f4f7;color:#344054;font-weight:700}
+.timeline{margin-top:14px;padding:16px}.timeline h3{font-size:14px;margin:0 0 12px}.weeks{display:grid;grid-template-columns:repeat(52,minmax(5px,1fr));gap:2px;height:42px}.wbar{border-radius:4px;opacity:.92;position:relative}.wbar:hover:after{content:attr(data-label);position:absolute;bottom:48px;left:50%;transform:translateX(-50%);background:#111827;color:white;padding:6px 8px;border-radius:8px;white-space:nowrap;font-size:11px;z-index:5}
+.progression{margin-top:14px;overflow:auto}.progression table{width:100%;border-collapse:collapse;min-width:690px}.progression th,.progression td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);font-size:13px}.progression th{background:#f9fafb;font-size:11px;text-transform:uppercase;color:var(--muted);letter-spacing:.05em}.progression td:first-child{font-weight:800}
+.month-toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.month-toolbar select{border:1px solid var(--line);background:white;border-radius:12px;padding:10px 12px;font-weight:700;min-width:180px}.mini-btn{border:1px solid var(--line);background:white;border-radius:12px;padding:9px 11px;font-weight:750;color:#344054}
+.month-summary{padding:14px 16px;margin-bottom:12px;display:flex;gap:12px;justify-content:space-between;align-items:center}.month-summary strong{font-size:15px}.month-summary span{color:var(--muted);font-size:12px}.progress-line{height:8px;background:#eef2f6;border-radius:99px;overflow:hidden;min-width:140px}.progress-line b{display:block;height:100%;background:var(--ok);border-radius:99px;width:0}
+.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}.dow{font-size:11px;text-transform:uppercase;color:var(--muted);font-weight:800;text-align:center;padding:4px}.day{min-height:104px;padding:9px;border:1px solid var(--line);border-radius:14px;background:#fff;position:relative}.day.muted{background:#f8fafc;color:#98a2b3}.day.today{outline:2px solid var(--accent);outline-offset:1px}.daynum{font-size:12px;font-weight:800;margin-bottom:7px}.session-chip{display:block;width:100%;border:0;text-align:left;border-radius:10px;padding:7px 8px;margin-top:5px;background:#f2f4f7;color:#1d2939;font-weight:800;font-size:11px;line-height:1.2}.session-chip small{display:block;font-weight:600;color:#667085;margin-top:2px}.session-chip.done{background:#ecfdf3;color:#067647}.session-chip.opt{border:1px dashed #98a2b3;background:#fff}.phase-dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:5px}
+.workout-wrap{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:14px}.workout-main{overflow:hidden}.workout-banner{padding:18px;background:linear-gradient(135deg,#1f2937,#111827);color:white}.workout-banner .meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}.workout-banner .meta span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);font-size:11px;border-radius:99px;padding:4px 7px;font-weight:700}.workout-banner h2{margin:0 0 5px;font-size:26px}.workout-banner p{margin:0;color:#d0d5dd;font-size:13px;max-width:760px}.workout-section{padding:16px 18px;border-top:1px solid var(--line)}.workout-section h3{font-size:14px;margin:0 0 10px}.warmup{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.warmup .item{background:#f8fafc;border:1px solid var(--line);padding:10px;border-radius:12px;font-size:12px}.warmup .item b{display:block;margin-bottom:2px}
+.exercise-list{display:flex;flex-direction:column;gap:9px}.exercise{display:grid;grid-template-columns:minmax(170px,1.4fr) .7fr .8fr .6fr;gap:8px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:12px}.exercise .name{font-weight:850}.exercise .name small{display:block;color:var(--muted);font-weight:600;margin-top:3px;line-height:1.25}.exercise .cell .lbl{font-size:10px;text-transform:uppercase;color:var(--muted);font-weight:800}.exercise .cell .val{font-size:13px;font-weight:800;margin-top:2px}.tag{display:inline-block;border-radius:99px;padding:3px 6px;font-size:9px;text-transform:uppercase;letter-spacing:.06em;font-weight:900;background:#fff7ed;color:#9a3412;margin-left:6px;vertical-align:1px}
+.side-card{padding:15px;position:sticky;top:104px;height:max-content}.side-card h3{margin:0 0 10px;font-size:14px}.side-card .rule{font-size:12px;color:#475467;background:#f8fafc;border-radius:12px;padding:10px;margin-bottom:10px}.field{margin-top:10px}.field label{font-size:11px;font-weight:800;color:#475467;display:block;margin-bottom:5px}.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:10px;background:white;padding:9px}.field textarea{min-height:88px;resize:vertical}.complete-btn{width:100%;border:0;border-radius:12px;background:var(--dark);color:white;padding:11px;font-weight:850;margin-top:10px}.complete-btn.done{background:var(--ok)}
+.back-btn{border:0;background:transparent;padding:0;color:var(--accent);font-weight:800;margin-bottom:10px}.source-note{margin-top:14px;padding:12px 14px;font-size:11px;color:#667085;background:#fff;border:1px solid var(--line);border-radius:14px}
+.bottom-nav{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:8px max(10px,env(safe-area-inset-left)) calc(8px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.bottom-nav button{border:0;background:transparent;border-radius:12px;padding:8px 4px;color:#667085;font-size:11px;font-weight:800}.bottom-nav button b{display:block;font-size:20px;line-height:1;margin-bottom:3px}.bottom-nav button.active{background:#f2f4f7;color:#111827}
+.empty{padding:24px;text-align:center;color:var(--muted)}
+
+/* Mobile app shell */
+body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent}
+.app-status{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#a7f3d0;margin-top:5px}.app-status:before{content:"";width:7px;height:7px;background:#34d399;border-radius:50%}
+.today-hero{padding:18px;background:linear-gradient(145deg,#111827,#283548);color:white;overflow:hidden;position:relative}.today-hero:after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:rgba(234,88,12,.16);right:-65px;top:-70px}.today-hero .overline{font-size:11px;color:#cbd5e1;text-transform:uppercase;letter-spacing:.1em;font-weight:850}.today-hero h2{font-size:28px;line-height:1.05;margin:7px 0 6px;max-width:520px}.today-hero p{font-size:13px;color:#d0d5dd;margin:0;max-width:640px}.primary-action{border:0;border-radius:14px;background:var(--accent2);color:#fff;padding:12px 16px;font-weight:850;margin-top:15px;position:relative;z-index:2}.today-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:12px 0}.today-stat{padding:13px}.today-stat .k{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:800}.today-stat .v{font-weight:900;font-size:19px;margin-top:2px}.week-card{padding:15px}.week-card h3{font-size:14px;margin:0 0 10px}.week-sessions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.week-session{border:1px solid var(--line);background:#fff;border-radius:13px;padding:11px;text-align:left;min-height:84px}.week-session strong{display:block;font-size:12px}.week-session span{display:block;font-size:11px;color:var(--muted);margin-top:3px}.week-session.done{background:#ecfdf3;border-color:#a6f4c5}.week-session.next{outline:2px solid var(--accent2);outline-offset:1px}.offline-note{padding:11px 13px;margin-top:12px;font-size:11px;color:#475467;box-shadow:none}.install-card{padding:13px;margin-top:12px;display:flex;gap:12px;align-items:center;justify-content:space-between;box-shadow:none}.install-card .copy{min-width:0}.install-card b{display:block;font-size:12px}.install-card span{display:block;font-size:11px;color:#667085;margin-top:2px;line-height:1.35}.install-card button{border:0;background:var(--dark);color:#fff;border-radius:11px;padding:9px 12px;font-size:11px;font-weight:850;white-space:nowrap}.install-card button[hidden]{display:none}.install-card.installed{display:none}.timer-box{margin-top:12px;border-top:1px solid var(--line);padding-top:12px}.timer-display{font-size:34px;font-weight:900;letter-spacing:-.03em;text-align:center;font-variant-numeric:tabular-nums;margin:5px 0 9px}.timer-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.timer-actions button{border:1px solid var(--line);background:white;border-radius:10px;padding:8px 4px;font-size:11px;font-weight:800}.timer-stop{width:100%;border:0;background:#f2f4f7;color:#344054;border-radius:10px;padding:8px;margin-top:6px;font-weight:800;font-size:11px}.safe-bottom{height:8px}
+@media(max-width:880px){.phase-grid{grid-template-columns:repeat(2,1fr)}.summary-grid{grid-template-columns:repeat(2,1fr)}.workout-wrap{grid-template-columns:1fr}.side-card{position:static}.exercise{grid-template-columns:1fr 1fr}.exercise .name{grid-column:1/-1}.warmup{grid-template-columns:1fr 1fr}.hero-actions{display:none}}
+@media(max-width:620px){.today-stats{grid-template-columns:repeat(3,1fr)}.week-sessions{grid-template-columns:1fr 1fr 1fr}.today-hero h2{font-size:25px}.hero{padding:14px 14px 13px}.brand h1{font-size:20px}.brand p{font-size:11px}.content{padding:12px}.section-head{align-items:start;flex-direction:column}.phase-grid{grid-template-columns:1fr}.summary-grid{gap:8px}.metric{padding:12px}.metric .v{font-size:20px}.timeline{padding:12px}.calendar{gap:4px}.dow{font-size:9px}.day{min-height:82px;padding:6px;border-radius:10px}.session-chip{padding:6px 5px;font-size:9px}.session-chip small{display:none}.workout-banner{padding:15px}.workout-banner h2{font-size:22px}.workout-section{padding:14px}.exercise{grid-template-columns:1fr 1fr;padding:10px}.warmup{grid-template-columns:1fr}.month-summary{align-items:flex-start;flex-direction:column}.progress-line{width:100%}.phase h3{font-size:17px}}
+@media(min-width:900px){.bottom-nav{display:none}.top-nav{display:flex}.app{padding-bottom:32px}.hero{position:relative}}
+@media print{.hero,.bottom-nav,.top-nav,.hero-actions,.back-btn,.side-card{display:none!important}.view{display:none!important}#annualView{display:block!important}.app{max-width:none}.card{box-shadow:none}.phase-grid{grid-template-columns:repeat(3,1fr)}body{background:white}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="hero-inner"><div class="brand"><h1>Kettlebell 2027</h1><p>Training Program · forza + conditioning + power</p><div class="app-status">PWA · offline · installabile</div></div><div class="hero-actions"><button class="ghost" onclick="goToday()">Oggi</button><button class="ghost" onclick="window.print()">Stampa annuale</button></div></div></header>
+<div class="app">
+  <main class="content">
+    <nav class="top-nav" aria-label="Viste"><button data-view="today" onclick="showView('today')">Oggi</button><button data-view="annual" onclick="showView('annual')">Annuale</button><button data-view="monthly" onclick="showView('monthly')">Mensile</button><button data-view="workout" onclick="openNextWorkout()">Workout</button></nav>
+
+    <section id="todayView" class="view active">
+      <div class="today-hero card">
+        <div class="overline" id="todayDate">Oggi</div>
+        <h2 id="todayWorkoutTitle">Prossimo allenamento</h2>
+        <p id="todayWorkoutObjective">Caricamento piano…</p>
+        <button class="primary-action" id="todayStartBtn" onclick="openNextWorkout()">Apri allenamento</button>
+      </div>
+      <div class="today-stats">
+        <div class="today-stat card"><div class="k">Settimana</div><div class="v" id="todayWeek">—</div></div>
+        <div class="today-stat card"><div class="k">Fase</div><div class="v" id="todayPhase">—</div></div>
+        <div class="today-stat card"><div class="k">Completati</div><div class="v" id="todayDone">—</div></div>
+      </div>
+      <div class="week-card card"><h3>Questa settimana</h3><div class="week-sessions" id="todayWeekSessions"></div></div>
+      <div id="pwaInstallCard" class="install-card card"><div class="copy"><b>Installa Kettlebell 2027</b><span id="pwaInstallText">Apri questa pagina dal telefono per aggiungerla alla Home.</span></div><button id="pwaInstallBtn" hidden onclick="installPwa()">Installa</button></div>
+      <div class="offline-note card"><b>Offline:</b> dopo il primo caricamento la PWA resta disponibile anche senza rete. Progressi, RPE e note vengono salvati localmente sul dispositivo.</div>
+    </section>
+
+    <section id="annualView" class="view">
+      <div class="section-head"><div><div class="eyebrow">Vista 1 · Overall</div><h2>Roadmap annuale</h2><p>52 settimane, 2 sedute core + 1 seduta opzionale ogni settimana.</p></div></div>
+      <div class="summary-grid">
+        <div class="metric card"><div class="k">Durata</div><div class="v">52</div><div class="s">settimane</div></div>
+        <div class="metric card"><div class="k">Core</div><div class="v">104</div><div class="s">workout A/B</div></div>
+        <div class="metric card"><div class="k">Opzionali</div><div class="v">52</div><div class="s">conditioning / outdoor</div></div>
+        <div class="metric card"><div class="k">Baseline press</div><div class="v">2×16</div><div class="s">kg · 5 reps impegnative</div></div>
+      </div>
+      <div id="phaseGrid" class="phase-grid"></div>
+      <div class="timeline card"><h3>Timeline 52 settimane</h3><div id="weeksTimeline" class="weeks"></div></div>
+      <div class="progression card"><table><thead><tr><th>Movimento</th><th>Start</th><th>Target intermedio</th><th>Target annuale</th></tr></thead><tbody>
+        <tr><td>Double Clean & Press</td><td>2×16 kg</td><td>2×16 kg + volume</td><td>2×20 kg × 2–4</td></tr>
+        <tr><td>Double Front Squat</td><td>2×16 kg</td><td>2×20 kg</td><td>2×20–24 kg</td></tr>
+        <tr><td>Single Press</td><td>16 kg</td><td>20 kg</td><td>20–24 kg</td></tr>
+        <tr><td>Swing</td><td>20 kg</td><td>24 kg</td><td>24–32 kg</td></tr>
+        <tr><td>Turkish Get-Up</td><td>12–16 kg</td><td>16–20 kg</td><td>20–24 kg</td></tr>
+        <tr><td>Double Clean</td><td>2×16 kg</td><td>2×20 kg</td><td>2×20 kg+</td></tr>
+      </tbody></table></div>
+      <div class="source-note"><b>Regola di progressione:</b> prima aumentare volume/reps mantenendo tecnica e 2–3 RIR; poi salire di peso tornando a volumi inferiori. I carichi e gli schemi annuali derivano dal piano base; recuperi, warm-up, cues e distribuzione settimanale sono stati resi espliciti per uso operativo.</div>
+    </section>
+
+    <section id="monthlyView" class="view">
+      <div class="section-head"><div><div class="eyebrow">Vista 2 · Calendario</div><h2 id="monthTitle">Mese</h2><p>Martedì = A · Giovedì = C opzionale · Sabato = B</p></div><div class="month-toolbar"><button class="mini-btn" onclick="shiftMonth(-1)">‹</button><select id="monthSelect" onchange="renderMonth(this.value)"></select><button class="mini-btn" onclick="shiftMonth(1)">›</button></div></div>
+      <div class="month-summary card"><div><strong id="monthPhase">—</strong><br><span id="monthStats">—</span></div><div class="progress-line"><b id="monthProgress"></b></div></div>
+      <div class="calendar" id="calendar"></div>
+    </section>
+
+    <section id="workoutView" class="view">
+      <button class="back-btn" onclick="showView('monthly')">← Torna al calendario</button>
+      <div id="workoutContent" class="workout-wrap"></div>
+    </section>
+  </main>
+</div>
+<nav class="bottom-nav" aria-label="Navigazione mobile"><button data-view="today" onclick="showView('today')"><b>⌂</b>Oggi</button><button data-view="monthly" onclick="showView('monthly')"><b>▦</b>Mese</button><button data-view="annual" onclick="showView('annual')"><b>◫</b>Piano</button><button data-view="workout" onclick="openNextWorkout()"><b>●</b>Workout</button></nav>
+<script>
+const START = new Date(2026,7,31,12,0,0); // Monday 31 Aug 2026
+const fmtDate = d => new Intl.DateTimeFormat('it-IT',{weekday:'short',day:'numeric',month:'short',year:'numeric'}).format(d);
+const fmtShort = d => new Intl.DateTimeFormat('it-IT',{day:'numeric',month:'short'}).format(d);
+const monthFmt = d => new Intl.DateTimeFormat('it-IT',{month:'long',year:'numeric'}).format(d);
+const addDays=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x};
+const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const lerpInt=(a,b,p)=>Math.round(a+(b-a)*p);
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const storageKey='kb2027-v1';
+let state=JSON.parse(localStorage.getItem(storageKey)||'{"done":{},"notes":{},"rpe":{}}');
+const save=()=>localStorage.setItem(storageKey,JSON.stringify(state));
+
+const phases=[
+ {id:1,name:'Re-entry',weeks:4,color:'var(--p1)',objective:'Rientro tecnico, capacità di lavoro e consolidamento dei pattern fondamentali.',focus:['Tecnica','Base strength','Z2'],start:1,end:4},
+ {id:2,name:'Strength Foundation',weeks:8,color:'var(--p2)',objective:'Costruire volume solido su press, squat e hinge mantenendo 2–3 RIR.',focus:['Press','Squat','Hinge'],start:5,end:12},
+ {id:3,name:'Strength',weeks:8,color:'var(--p3)',objective:'Aumentare forza relativa e tolleranza a carichi più alti senza cedimento.',focus:['Heavy strength','Pull','24 kg swing'],start:13,end:20},
+ {id:4,name:'Power',weeks:8,color:'var(--p4)',objective:'Convertire la forza in espressione esplosiva e accelerazione.',focus:['Explosive','Jumps','Sprint'],start:21,end:28},
+ {id:5,name:'Futsal Performance',weeks:12,color:'var(--p5)',objective:'Mantenere forza e sviluppare repeated sprint ability e cambi di direzione.',focus:['Maintenance','Shuttle','RSA'],start:29,end:40},
+ {id:6,name:'Consolidation',weeks:12,color:'var(--p6)',objective:'Integrare forza e conditioning in sedute semplici, sostenibili e ripetibili.',focus:['Complex','Simple','Autonomia'],start:41,end:52}
+];
+function phaseForWeek(w){return phases.find(p=>w>=p.start&&w<=p.end)}
+function weekStart(w){return addDays(START,(w-1)*7)}
+function sessionDate(w,type){const off={A:1,C:3,B:5}[type];return addDays(weekStart(w),off)}
+function phaseWeek(w){const p=phaseForWeek(w);return w-p.start+1}
+function pctInPhase(w){const p=phaseForWeek(w);return (phaseWeek(w)-1)/Math.max(1,p.weeks-1)}
+
+const tech={
+ 'Goblet squat':'Gomiti sotto il carico, piede pieno a terra, discesa controllata.',
+ 'Push-up':'Corpo in blocco, scapole libere, fermarsi prima di perdere linea.',
+ 'One-arm row':'Busto stabile, tira il gomito verso l’anca senza ruotare.',
+ 'Swing 2 mani':'Hinge rapido, braccia passive, chiusura forte di glutei e addome.',
+ 'Swing':'Hinge esplosivo; interrompere la serie se velocità o presa calano.',
+ 'Hard swing':'Ogni ripetizione massima accelerazione mantenendo tecnica pulita.',
+ 'Heavy swing':'Potenza dall’anca, nessun sollevamento attivo con le spalle.',
+ 'Turkish Get-Up':'Muoversi per posizioni stabili; occhi sul kettlebell nelle fasi iniziali.',
+ 'TGU':'Una ripetizione controllata per lato; priorità assoluta alla stabilità.',
+ 'Single clean & press':'Clean silenzioso, rack solido, press senza compenso lombare.',
+ 'Double clean & press':'Clean compatto, brace forte, press simultaneo senza grind.',
+ 'Double C&P':'Stessa tecnica del double clean & press; nessuna rep forzata.',
+ 'Reverse lunge rack':'Passo indietro stabile, ginocchio anteriore allineato, rack compatto.',
+ 'Band row / pull':'Scapole verso dietro e in basso; movimento controllato.',
+ 'Ab wheel':'Retroversione del bacino e addome attivo; fermati prima di inarcare la schiena.',
+ 'Pull-up':'Partenza attiva di scapole, mento oltre la sbarra senza slancio.',
+ 'Double front squat':'Doppio rack solido, brace 360°, risalita senza perdere il busto.',
+ 'Double clean':'Zip verticale, ricezione morbida in rack, niente impatto sugli avambracci.',
+ 'Explosive push-up':'Spinta massima, poche reps di qualità, stop prima del calo di velocità.',
+ 'Broad jump':'Carica anche, proietta in avanti, atterraggio morbido e stabile.',
+ 'Sprint 10 m':'Accelerazione: inclinazione in avanti e spinte brevi e aggressive.',
+ 'Sprint 20 m':'Accelera per i primi metri, poi lascia emergere la velocità.',
+ '5-10-5 shuttle':'Baricentro basso nei cambi di direzione; pianta il piede sotto il corpo.',
+ 'Repeated sprint':'Ogni sprint rapido ma tecnicamente pulito; rispetta il recupero breve.',
+ 'Clean':'Nel complex: 2 clean fluidi senza posare i kettlebell.',
+ 'Press':'Nel complex: 2 press puliti, niente grind.',
+ 'Front squat':'Nel complex: 3 squat mantenendo rack e respirazione.',
+ 'Complex completo':'Clean 2 + Press 2 + Front squat 3 = 1 round.',
+ 'Easy run / run-walk':'Ritmo conversazionale, respirazione controllata, nessuna ricerca del passo.',
+ 'Hill sprint':'Sprint breve in salita, recupero completo camminando.',
+ 'Sprint 10–20 m + shuttle':'Qualità e accelerazione; recupero sufficiente per mantenere velocità.',
+ 'Calcetto / easy run':'Seduta specifica o aerobica facile, non entrambe se affaticato.',
+ 'Calcetto / sprint / parco':'Scegli una modalità leggera o specifica in base a recupero e disponibilità.'
+};
+function E(name,scheme,load,rest,setup,extra=''){return {name,scheme,load,rest,setup,extra,cue:tech[name]||''}}
+
+function workoutData(w,type){
+ const p=phaseForWeek(w), pw=phaseWeek(w), q=pctInPhase(w);
+ let title='',objective='',duration='',ex=[];
+ if(p.id===1){
+  if(type==='A'){title='A · Base strength';objective='Ricostruire pattern di squat, spinta, tirata e hinge con volume moderato e tecnica alta.';duration='35–45 min';
+   ex=[E('Goblet squat',`${pw<3?3:4}×${pw%2?5:6}`,'1×16–20 kg','75–90″','mono KB'),E('Push-up',`3×${5+pw}`,'Corpo libero','60–75″','bodyweight'),E('One-arm row','3×8+8','1×16–20 kg','60″','mono KB'),E('Swing 2 mani',`${[6,8,9,10][pw-1]}×10`,'1×20 kg','45–60″','mono KB'),E('Turkish Get-Up',`${pw<3?2:3}×1+1`,'1×12–16 kg','60–90″','mono KB')];}
+  if(type==='B'){title='B · Technique / full body';objective='Consolidare clean & press single, stabilità unilaterale e core senza accumulare fatica eccessiva.';duration='35–45 min';
+   ex=[E('Single clean & press',`${[3,4,4,5][pw-1]}×3+3`,'1×16 kg','75–90″','mono KB'),E('Reverse lunge rack','3×5+5','1×16 kg','60–75″','mono KB'),E('Band row / pull',`3×${8+pw}`,'Elastico','45–60″','elastico'),E('Ab wheel',`3×${Math.min(8,4+pw)}`,'Ruota','60″','ab wheel'),E('Swing','5×10','1×20 kg','45–60″','mono KB')];}
+  if(type==='C'){title='C · Easy aerobic';objective='Sviluppare base aerobica e recupero mantenendo intensità conversazionale.';duration=`${25+Math.min(5,(pw-1)*2)} min`;ex=[E('Easy run / run-walk',`${25+Math.min(5,(pw-1)*2)}′`,'Z2 / conversazionale','—','outdoor')];}
+ }
+ if(p.id===2){
+  if(type==='A'){const sets=lerpInt(5,7,q),reps=q<.35?2:3,sw=lerpInt(8,10,q);title='A · Press + hinge';objective='Costruire volume sul double clean & press e capacità esplosiva dell’hinge.';duration='40–50 min';ex=[E('Double clean & press',`${sets}×${reps}`,'2×16 kg','120–150″','doppio KB'),E('Pull-up',`${lerpInt(3,5,q)}×3–5`,'Corpo libero','90–120″','bodyweight'),E('Swing',`${sw}×10`,q>.65?'1×24 kg*':'1×20 kg','45–60″','mono KB','*24 kg solo se tecnica e 2–3 RIR restano solidi'),E('Ab wheel',`3×${lerpInt(6,8,q)}`,'Ruota','60″','ab wheel')];}
+  if(type==='B'){title='B · Squat foundation';objective='Aumentare volume di squat e clean in doppio rack, mantenendo controllo e mobilità.';duration='40–50 min';ex=[E('Double front squat',`${q<.5?4:5}×${lerpInt(4,6,q)}`,'2×16 kg','120″','doppio KB'),E('Double clean',`${q<.5?4:5}×3`,'2×16 kg','90–120″','doppio KB'),E('TGU','3×1+1','1×16 kg','60–90″','mono KB'),E('Push-up',`3×${lerpInt(8,12,q)}`,'Corpo libero','60–75″','bodyweight')];}
+  if(type==='C'){title='C · Hill sprint';objective='Inserire accelerazione e potenza degli arti inferiori con volume molto contenuto.';duration='20–30 min';ex=[E('Hill sprint','6×10–15″','Outdoor','90–120″','outdoor')];}
+ }
+ if(p.id===3){
+  if(type==='A'){title='A · Heavy strength';objective='Spingere la forza del double press mantenendo margine tecnico e qualità di ogni rep.';duration='40–50 min';ex=[E('Double clean & press',`${q<.55?6:5}×${q<.45?3:4}`,'2×16 kg','150″','doppio KB'),E('Pull-up','5×3–5','Corpo libero','120″','bodyweight'),E('Heavy swing',`${lerpInt(6,10,q)}×10`,'1×24 kg','60″','mono KB'),E('Ab wheel',`3×${lerpInt(6,10,q)}`,'Ruota','60″','ab wheel')];}
+  if(type==='B'){title='B · Lower strength';objective='Sviluppare forza di squat e clean, introducendo gradualmente 2×20 kg solo quando il volume a 16 kg è solido.';duration='40–50 min';ex=[E('Double front squat',`5×${lerpInt(3,5,q)}`,q>.62?'2×20 kg*':'2×16 kg','120–150″','doppio KB','*se tutte le serie restano a 2–3 RIR'),E('Double clean','5×3',q>.62?'2×20 kg*':'2×16 kg','120″','doppio KB'),E('TGU','3×1+1',q>.7?'1×20 kg*':'1×16 kg','75–90″','mono KB'),E('Push-up',`3×${lerpInt(6,10,q)}`,'Corpo libero','60–75″','bodyweight')];}
+  if(type==='C'){title='C · Easy conditioning';objective='Recupero attivo: mantenere la base aerobica senza sottrarre qualità alle sedute di forza.';duration='25–30 min';ex=[E('Easy run / run-walk','25–30′','Z2 / conversazionale','—','outdoor')];}
+ }
+ if(p.id===4){
+  if(type==='A'){title='A · Explosive';objective='Massimizzare velocità e intent esplosivo: poche reps, recupero sufficiente, nessun grind.';duration='35–45 min';ex=[E('Hard swing',`${lerpInt(6,8,q)}×10`,'1×24 kg','60–75″','mono KB'),E('Explosive push-up',`${lerpInt(6,8,q)}×3–5`,'Corpo libero','60–90″','bodyweight'),E('Double C&P',`${q<.5?4:5}×2`,'2×16 kg','120″','doppio KB'),E('Pull-up','3×3–5','Corpo libero','90–120″','bodyweight')];}
+  if(type==='B'){title='B · Lower power';objective='Trasferire forza a salto, clean e squat rapidi mantenendo atterraggi e rack stabili.';duration='35–45 min';ex=[E('Broad jump','5×3','Corpo libero','90″','bodyweight'),E('Double clean','5×3','2×16 kg','90–120″','doppio KB'),E('Double front squat','5×3',q>.6?'2×20 kg*':'2×16 kg','120″','doppio KB'),E('TGU','2×1+1',q>.65?'1×20 kg*':'1×16 kg','75–90″','mono KB')];}
+  if(type==='C'){title='C · Sprint + shuttle';objective='Allenare accelerazione e cambio di direzione mantenendo qualità elevata.';duration='25–35 min';ex=[E('Sprint 10–20 m + shuttle',`${lerpInt(8,12,q)} sprint totali`,'Outdoor','60–120″','outdoor')];}
+ }
+ if(p.id===5){
+  const block=((pw-1)%4)+1;
+  if(type==='A'){title='A · Strength maintenance';objective='Mantenere i livelli di forza con volume essenziale mentre cresce la componente specifica di sprint.';duration='35–45 min';ex=[E('Double front squat','4×3','2×20 kg','120–150″','doppio KB'),E('Double clean & press',`4×${block===4?2:3}`,(pw>=7?'2×20 kg*':'2×16 kg'),'120–150″','doppio KB','*20 kg solo su doppie pulite, senza grind'),E('Pull-up','4×3–5','Corpo libero','90–120″','bodyweight'),E('Heavy swing','6×10',pw>=9?'1×32 kg*':'1×24 kg','60–75″','mono KB','*32 kg solo se disponibile e tecnica invariata'),E('Ab wheel','3×8–10','Ruota','60″','ab wheel')];}
+  if(type==='B'){title='B · Futsal power';objective='Sviluppare accelerazione, cambio direzione e repeated sprint ability in una seduta specifica.';duration='35–45 min';ex=[E('Double clean','4×3','2×16 kg','90″','doppio KB'),E('Sprint 10 m','4 reps','Outdoor','60–90″','outdoor'),E('Sprint 20 m','4 reps','Outdoor','90″','outdoor'),E('5-10-5 shuttle','4 reps','Outdoor','90–120″','outdoor'),E('Repeated sprint',`${pw<=4?4:pw<=8?5:6}×20 m`,'Outdoor','30″','outdoor')];}
+  if(type==='C'){title='C · Specific / aerobic';objective='Usare calcetto come stimolo specifico oppure Z2 come recupero; scegliere in base alla fatica settimanale.';duration='25–60 min';ex=[E('Calcetto / easy run','40–60′ / 25–35′','Specifico / Z2','—','outdoor')];}
+ }
+ if(p.id===6){
+  if(type==='A'){title='A · Double KB complex';objective='Integrare clean, press e squat in un blocco denso ma tecnicamente controllato.';duration='35–45 min';const load=pw>=7?'2×20 kg*':'2×16 kg';ex=[E('Clean','2 reps',load,'—','doppio KB'),E('Press','2 reps',load,'—','doppio KB'),E('Front squat','3 reps',load,'—','doppio KB'),E('Complex completo','5 round',load,'120″ tra round','doppio KB','*passa a 2×20 solo quando 5 round a 16 kg sono solidi'),E('Pull-up','3×5','Corpo libero','90″','bodyweight'),E('Ab wheel','3×8','Ruota','60″','ab wheel')];}
+  if(type==='B'){title='B · Simple';objective='Allenamento essenziale di hinge, stabilità globale e spinta, facile da sostenere nel lungo periodo.';duration='35–45 min';ex=[E('Swing','10×10',pw>=9?'1×32 kg*':'1×24 kg','45–60″','mono KB'),E('TGU','5×1+1',pw>=9?'1×24 kg*':pw>=5?'1×20 kg':'1×16 kg','60–90″','mono KB'),E('Push-up','3×8–12','Corpo libero','60–75″','bodyweight')];}
+  if(type==='C'){title='C · Free conditioning';objective='Mantenere varietà e aderenza con una seduta scelta tra calcetto, sprint leggeri o circuito al parco.';duration='25–45 min';ex=[E('Calcetto / sprint / parco','25–45′','Libero','—','outdoor')];}
+ }
+ return {title,objective,duration,ex,phase:p,pw};
+}
+
+function warmupFor(type,p){
+ const base=[['Mobilità','Halos + prying squat','2–3 min'],['Pattern','KB deadlift / hinge drill','2×8'],['Attivazione','Scap push-up + glute bridge','1–2×8']];
+ if(type==='C') return [['Easy start','Cammino / jogging progressivo','5–7 min'],['Mobilità','Caviglie + anche','2–3 min'],['Prep','2–3 accelerazioni submassimali','se sprint']];
+ return base;
+}
+function phaseDates(p){const s=weekStart(p.start),e=addDays(weekStart(p.end),6);return `${fmtShort(s)} → ${fmtShort(e)}`}
+function renderAnnual(){
+ document.getElementById('phaseGrid').innerHTML=phases.map(p=>`<article class="phase card" style="--pc:${p.color}"><div class="phase-num">Fase ${p.id} · ${p.weeks} settimane</div><h3>${p.name}</h3><div class="date">${phaseDates(p)}</div><p>${p.objective}</p><div class="pill-row">${p.focus.map(x=>`<span class="pill">${x}</span>`).join('')}</div></article>`).join('');
+ document.getElementById('weeksTimeline').innerHTML=Array.from({length:52},(_,i)=>{const w=i+1,p=phaseForWeek(w);return `<div class="wbar" style="background:${p.color}" data-label="W${w} · ${p.name}"></div>`}).join('');
+}
+const monthKeys=[];for(let i=0;i<12;i++){const d=new Date(2026,8+i,1,12);monthKeys.push(`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`)}
+function populateMonths(){const sel=document.getElementById('monthSelect');sel.innerHTML=monthKeys.map(k=>{const [y,m]=k.split('-').map(Number),d=new Date(y,m-1,1);return `<option value="${k}">${monthFmt(d)}</option>`}).join('')}
+function sessionsForMonth(y,m){const arr=[];for(let w=1;w<=52;w++)for(const t of ['A','C','B']){const d=sessionDate(w,t);if(d.getFullYear()===y&&d.getMonth()===m-1)arr.push({w,t,d,id:`w${w}-${t}`})}return arr}
+function renderMonth(key){
+ if(!key)key=monthKeys[0]; const [y,m]=key.split('-').map(Number); const first=new Date(y,m-1,1,12),last=new Date(y,m,0,12); const sessions=sessionsForMonth(y,m);
+ document.getElementById('monthSelect').value=key;document.getElementById('monthTitle').textContent=monthFmt(first)[0].toUpperCase()+monthFmt(first).slice(1);
+ const phaseNames=[...new Set(sessions.map(s=>phaseForWeek(s.w).name))];document.getElementById('monthPhase').textContent=phaseNames.join(' → ')||'Fuori programma';
+ const core=sessions.filter(s=>s.t!=='C').length,done=sessions.filter(s=>state.done[s.id]).length;document.getElementById('monthStats').textContent=`${core} sedute core · ${sessions.filter(s=>s.t==='C').length} opzionali · ${done}/${sessions.length} completate`;
+ document.getElementById('monthProgress').style.width=(sessions.length?done/sessions.length*100:0)+'%';
+ const cal=document.getElementById('calendar');let html=['Lun','Mar','Mer','Gio','Ven','Sab','Dom'].map(x=>`<div class="dow">${x}</div>`).join('');
+ const startOffset=(first.getDay()+6)%7;const cells=Math.ceil((startOffset+last.getDate())/7)*7;
+ const today=new Date();
+ for(let i=0;i<cells;i++){
+  const day=i-startOffset+1; const d=new Date(y,m-1,day,12); const inMonth=day>=1&&day<=last.getDate(); const ds=iso(d); const todays=inMonth&&iso(today)===ds;
+  const ss=inMonth?sessions.filter(s=>iso(s.d)===ds):[];
+  html+=`<div class="day ${inMonth?'':'muted'} ${todays?'today':''}"><div class="daynum">${d.getDate()}</div>${ss.map(s=>{const wd=workoutData(s.w,s.t),done=state.done[s.id];return `<button class="session-chip ${done?'done':''} ${s.t==='C'?'opt':''}" onclick="openWorkout(${s.w},'${s.t}')"><span class="phase-dot" style="background:${wd.phase.color}"></span>${s.t} · W${s.w}<small>${wd.title.replace(/^. · /,'')}</small></button>`}).join('')}</div>`;
+ }
+ cal.innerHTML=html; localStorage.setItem('kb2027-month',key);
+}
+function shiftMonth(delta){let key=document.getElementById('monthSelect').value,idx=monthKeys.indexOf(key);idx=clamp(idx+delta,0,monthKeys.length-1);renderMonth(monthKeys[idx])}
+function currentProgramMonth(){const n=new Date(),k=`${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,'0')}`;return monthKeys.includes(k)?k:monthKeys[0]}
+function showView(v){document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));document.getElementById(v+'View').classList.add('active');document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===v));window.scrollTo({top:0,behavior:'smooth'});if(v==='monthly'&&!document.getElementById('calendar').children.length)renderMonth(localStorage.getItem('kb2027-month')||currentProgramMonth());if(v==='today')renderToday()}
+function openWorkout(w,t){
+ const d=sessionDate(w,t),data=workoutData(w,t),id=`w${w}-${t}`,done=!!state.done[id];
+ const warm=warmupFor(t,data.phase);
+ document.getElementById('workoutContent').innerHTML=`<article class="workout-main card"><div class="workout-banner"><div class="meta"><span>W${w} · fase ${data.phase.id}</span><span>${fmtDate(d)}</span><span>${t==='C'?'Opzionale':'Core'}</span><span>${data.duration}</span></div><h2>${data.title}</h2><p>${data.objective}</p></div>
+ <section class="workout-section"><h3>Warm-up · 6–8 min</h3><div class="warmup">${warm.map(x=>`<div class="item"><b>${x[0]}</b>${x[1]} · ${x[2]}</div>`).join('')}</div></section>
+ <section class="workout-section"><h3>Blocco principale</h3><div class="exercise-list">${data.ex.map(e=>`<div class="exercise"><div class="name">${e.name}<span class="tag">${e.setup}</span><small>${e.cue}${e.extra?` · ${e.extra}`:''}</small></div><div class="cell"><div class="lbl">Schema</div><div class="val">${e.scheme}</div></div><div class="cell"><div class="lbl">Carico</div><div class="val">${e.load}</div></div><div class="cell"><div class="lbl">Recupero</div><div class="val">${e.rest}</div></div></div>`).join('')}</div></section>
+ <section class="workout-section"><h3>Target della seduta</h3><div style="font-size:13px;color:#475467"><b>Intensità:</b> forza a 2–3 RIR; nessuna serie a cedimento. <b>Qualità:</b> interrompi la progressione se tecnica, velocità o stabilità peggiorano. <b>Cool-down:</b> 3–5 min facoltativi di respirazione e mobilità leggera.</div></section></article>
+ <aside class="side-card card"><h3>Log workout</h3><div class="rule"><b>Progressione:</b> prima completa reps/volume con tecnica solida e 2–3 RIR; solo dopo aumenta il carico e riduci il volume.</div><div class="field"><label>RPE percepito</label><select id="rpeSel" onchange="saveRpe('${id}')"><option value="">—</option>${[5,6,7,8,9,10].map(x=>`<option value="${x}" ${state.rpe[id]==x?'selected':''}>${x}/10</option>`).join('')}</select></div><div class="field"><label>Note / carichi effettivi</label><textarea id="noteBox" oninput="saveNote('${id}')" placeholder="Es. 2×16 kg, tutte le serie pulite...">${state.notes[id]||''}</textarea></div><button id="completeBtn" class="complete-btn ${done?'done':''}" onclick="toggleDone('${id}',${w},'${t}')">${done?'✓ Completato':'Segna completato'}</button><div class="timer-box"><h3>Timer recupero</h3><div id="timerDisplay" class="timer-display">00:00</div><div class="timer-actions"><button onclick="startTimer(60)">60″</button><button onclick="startTimer(90)">90″</button><button onclick="startTimer(120)">120″</button></div><button class="timer-stop" onclick="stopTimer()">Stop / reset</button></div></aside>`;
+ showView('workout'); localStorage.setItem('kb2027-last',JSON.stringify({w,t}));
+}
+function toggleDone(id,w,t){state.done[id]=!state.done[id];save();openWorkout(w,t)}
+function saveNote(id){state.notes[id]=document.getElementById('noteBox').value;save()}
+function saveRpe(id){state.rpe[id]=document.getElementById('rpeSel').value;save()}
+function openNextWorkout(){
+ const now=new Date();let candidate=null; findNext: for(let w=1;w<=52;w++){for(const t of ['A','C','B']){const d=sessionDate(w,t);if(!state.done[`w${w}-${t}`]&&d>=new Date(now.getFullYear(),now.getMonth(),now.getDate(),0,0,0)){candidate={w,t};break findNext;}}}
+ if(!candidate){candidate=JSON.parse(localStorage.getItem('kb2027-last')||'{"w":1,"t":"A"}')} openWorkout(candidate.w,candidate.t)
+}
+let timerHandle=null,timerRemaining=0;
+function startTimer(seconds){stopTimer(false);timerRemaining=seconds;paintTimer();timerHandle=setInterval(()=>{timerRemaining--;paintTimer();if(timerRemaining<=0){clearInterval(timerHandle);timerHandle=null;if(navigator.vibrate)navigator.vibrate([150,80,150]);}},1000)}
+function stopTimer(reset=true){if(timerHandle)clearInterval(timerHandle);timerHandle=null;if(reset){timerRemaining=0;paintTimer()}}
+function paintTimer(){const el=document.getElementById('timerDisplay');if(!el)return;const m=Math.floor(timerRemaining/60),s=timerRemaining%60;el.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}
+function programWeekForDate(d){const day=Math.floor((new Date(d.getFullYear(),d.getMonth(),d.getDate(),12)-START)/86400000);return clamp(Math.floor(day/7)+1,1,52)}
+function findNextSession(from=new Date()){const floor=new Date(from.getFullYear(),from.getMonth(),from.getDate(),0,0,0);for(let w=1;w<=52;w++){for(const t of ['A','C','B']){const d=sessionDate(w,t);if(!state.done[`w${w}-${t}`]&&d>=floor)return {w,t,d};}}return {w:52,t:'B',d:sessionDate(52,'B')}}
+function renderToday(){const now=new Date(),w=programWeekForDate(now),p=phaseForWeek(w),next=findNextSession(now),wd=workoutData(next.w,next.t);document.getElementById('todayDate').textContent=new Intl.DateTimeFormat('it-IT',{weekday:'long',day:'numeric',month:'long'}).format(now);document.getElementById('todayWorkoutTitle').textContent=(iso(next.d)===iso(now)?'Oggi · ':'Prossimo · ')+wd.title;document.getElementById('todayWorkoutObjective').textContent=`${fmtDate(next.d)} · ${wd.duration} · ${wd.objective}`;document.getElementById('todayWeek').textContent=`W${w}/52`;document.getElementById('todayPhase').textContent=p.id;const doneCore=Object.keys(state.done).filter(k=>state.done[k]&&/-(A|B)$/.test(k)).length;document.getElementById('todayDone').textContent=`${doneCore}/104`;document.getElementById('todayWeekSessions').innerHTML=['A','C','B'].map(t=>{const d=sessionDate(w,t),id=`w${w}-${t}`,data=workoutData(w,t),isDone=!!state.done[id],isNext=(next.w===w&&next.t===t);return `<button class="week-session ${isDone?'done':''} ${isNext?'next':''}" onclick="openWorkout(${w},'${t}')"><strong>${t} · ${new Intl.DateTimeFormat('it-IT',{weekday:'short'}).format(d)}</strong><span>${data.title.replace(/^. · /,'')}</span><span>${isDone?'✓ completato':fmtShort(d)}</span></button>`}).join('')}
+function goToday(){showView('today');renderToday()}
+
+// PWA install + offline support
+let deferredInstallPrompt=null;
+function pwaIsStandalone(){return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone===true}
+function refreshPwaInstallUi(){
+ const card=document.getElementById('pwaInstallCard'),btn=document.getElementById('pwaInstallBtn'),txt=document.getElementById('pwaInstallText');
+ if(!card||!btn||!txt)return;
+ if(pwaIsStandalone()){card.classList.add('installed');return}
+ card.classList.remove('installed');
+ const isiOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
+ if(deferredInstallPrompt){btn.hidden=false;txt.textContent='Installazione disponibile: si aprirà come una normale app, senza barra del browser.';return}
+ btn.hidden=true;
+ if(isiOS){txt.textContent='Su iPhone/iPad: Safari → Condividi → Aggiungi alla schermata Home.'}
+ else{txt.textContent='Se il pulsante non compare, usa il menu del browser → Installa app / Aggiungi a schermata Home.'}
+}
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredInstallPrompt=e;refreshPwaInstallUi()});
+window.addEventListener('appinstalled',()=>{deferredInstallPrompt=null;refreshPwaInstallUi()});
+async function installPwa(){
+ if(!deferredInstallPrompt){refreshPwaInstallUi();return}
+ deferredInstallPrompt.prompt();
+ try{await deferredInstallPrompt.userChoice}catch(e){}
+ deferredInstallPrompt=null;refreshPwaInstallUi();
+}
+if('serviceWorker' in navigator && (location.protocol==='https:' || location.hostname==='localhost' || location.hostname==='127.0.0.1')){
+ window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(err=>console.warn('Service worker non registrato:',err)));
+}
+window.addEventListener('DOMContentLoaded',refreshPwaInstallUi);
+
+renderAnnual();populateMonths();renderMonth(localStorage.getItem('kb2027-month')||currentProgramMonth());renderToday();showView('today');
+</script>
+</body>
+</html>
