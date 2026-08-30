@@ -133,3 +133,16 @@ Aprila una prima volta con rete. Il primo caricamento installa il service worker
 ### Dopo un aggiornamento vedo ancora la versione precedente
 
 Aggiorna la versione `CACHE_NAME` in `sw.js`, fai commit e riapri la PWA mentre sei online.
+
+
+## Backup e ripristino dei progressi
+
+Nella schermata **Oggi** è disponibile la sezione **Backup progressi**.
+
+1. Tocca **Backup JSON** per scaricare un file con completamenti, RPE, note e preferenze dell'app.
+2. Conserva il file in Files, Google Drive, iCloud Drive o altro spazio personale.
+3. Sul nuovo dispositivo apri/installa la PWA, vai su **Oggi → Backup progressi → Ripristina**.
+4. Seleziona il file `.json` e conferma il ripristino.
+5. L'app si ricarica automaticamente con i progressi recuperati.
+
+Il backup non viene inviato a GitHub: è un file creato localmente dal browser.

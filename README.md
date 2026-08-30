@@ -13,4 +13,14 @@ Progressive Web App statica e offline-first per il programma annuale Kettlebell 
 
 ## Dati personali dell'app
 
-Completamenti, RPE e note sono salvati nel `localStorage` del browser sul singolo dispositivo. Non vengono caricati nel repository GitHub né inviati a un server.
+Completamenti, RPE, note e preferenze sono salvati nel `localStorage` del browser sul singolo dispositivo. Non vengono caricati nel repository GitHub né inviati a un server.
+
+## Backup / Restore JSON
+
+Dalla Home dell’app:
+
+- **Backup JSON** scarica un file `kettlebell-2027-backup-YYYY-MM-DD.json` con tutti i dati locali dell’app.
+- **Ripristina** permette di selezionare quel file su questo o su un altro dispositivo.
+- Il restore sostituisce i dati locali `kb2027-*` presenti sul dispositivo; l’app chiede conferma prima di procedere.
+
+Conserva il file JSON in un luogo sicuro (ad esempio Drive/iCloud/Files).
