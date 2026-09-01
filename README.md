@@ -24,3 +24,8 @@ Dalla Home dell’app:
 - Il restore sostituisce i dati locali `kb2027-*` presenti sul dispositivo; l’app chiede conferma prima di procedere.
 
 Conserva il file JSON in un luogo sicuro (ad esempio Drive/iCloud/Files).
+## Stato workout nel calendario
+- Pallino rosso: workout pianificato / da completare.
+- Pallino verde: workout completato.
+- Lo stato si aggiorna automaticamente quando si torna alla vista mensile.
+
