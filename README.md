@@ -32,3 +32,7 @@ Conserva il file JSON in un luogo sicuro (ad esempio Drive/iCloud/Files).
 
 ## Data effettiva workout
 Ogni scheda workout consente di modificare la **Data effettiva**. Se la data viene cambiata, la seduta viene rimossa dalla data pianificata e visualizzata nella nuova data nella vista **Mese**. La data pianificata rimane visibile nella scheda e può essere ripristinata. Le date effettive sono incluse nel Backup/Restore JSON.
+
+## Workout custom
+
+Dalla vista **Mese** usa il pulsante **+ Custom** per inserire una seduta libera con data e note. Il workout viene salvato localmente, appare nel giorno indicato del calendario ed è incluso nel Backup/Restore JSON. Toccando il workout custom dal calendario è possibile modificarlo o eliminarlo.

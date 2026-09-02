@@ -41,6 +41,7 @@ button{cursor:pointer}
 .month-toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.month-toolbar select{border:1px solid var(--line);background:white;border-radius:12px;padding:10px 12px;font-weight:700;min-width:180px}.mini-btn{border:1px solid var(--line);background:white;border-radius:12px;padding:9px 11px;font-weight:750;color:#344054}
 .month-summary{padding:14px 16px;margin-bottom:12px;display:flex;gap:12px;justify-content:space-between;align-items:center}.month-summary strong{font-size:15px}.month-summary span{color:var(--muted);font-size:12px}.progress-line{height:8px;background:#eef2f6;border-radius:99px;overflow:hidden;min-width:140px}.progress-line b{display:block;height:100%;background:var(--ok);border-radius:99px;width:0}
 .calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}.dow{font-size:11px;text-transform:uppercase;color:var(--muted);font-weight:800;text-align:center;padding:4px}.day{min-height:104px;padding:9px;border:1px solid var(--line);border-radius:14px;background:#fff;position:relative}.day.muted{background:#f8fafc;color:#98a2b3}.day.today{outline:2px solid var(--accent);outline-offset:1px}.daynum{font-size:12px;font-weight:800;margin-bottom:7px}.session-chip{display:block;width:100%;border:0;text-align:left;border-radius:10px;padding:7px 8px;margin-top:5px;background:#f2f4f7;color:#1d2939;font-weight:800;font-size:11px;line-height:1.2}.session-chip small{display:block;font-weight:600;color:#667085;margin-top:2px}.session-chip.done{background:#ecfdf3;color:#067647}.session-chip.opt{border:1px dashed #98a2b3;background:#fff}.phase-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:6px;background:#d92d20;box-shadow:0 0 0 2px rgba(217,45,32,.10);vertical-align:1px}.phase-dot.done{background:#12b76a;box-shadow:0 0 0 2px rgba(18,183,106,.12)}
+.custom-chip{background:#eef2ff;color:#3730a3;border:1px solid #c7d2fe}.custom-chip small{color:#6366f1}.custom-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:6px;background:#6366f1;box-shadow:0 0 0 2px rgba(99,102,241,.12);vertical-align:1px}.modal-backdrop{position:fixed;inset:0;background:rgba(17,24,39,.55);display:none;align-items:flex-end;justify-content:center;z-index:80;padding:16px}.modal-backdrop.show{display:flex}.modal-card{width:min(520px,100%);background:#fff;border-radius:20px;padding:18px;box-shadow:0 24px 80px rgba(0,0,0,.28);max-height:90vh;overflow:auto}.modal-card h3{margin:0 0 4px;font-size:20px}.modal-card p{margin:0 0 14px;color:var(--muted);font-size:13px}.modal-actions{display:flex;gap:8px;margin-top:14px}.modal-actions button{flex:1;border-radius:12px;padding:11px;font-weight:800;border:1px solid var(--line);background:#fff}.modal-actions .primary{background:var(--dark);color:#fff;border-color:var(--dark)}.modal-actions .danger{color:#b42318;border-color:#fecdca;background:#fff}.custom-note-preview{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .workout-wrap{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:14px}.workout-main{overflow:hidden}.workout-banner{padding:18px;background:linear-gradient(135deg,#1f2937,#111827);color:white}.workout-banner .meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}.workout-banner .meta span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);font-size:11px;border-radius:99px;padding:4px 7px;font-weight:700}.workout-banner h2{margin:0 0 5px;font-size:26px}.workout-banner p{margin:0;color:#d0d5dd;font-size:13px;max-width:760px}.workout-section{padding:16px 18px;border-top:1px solid var(--line)}.workout-section h3{font-size:14px;margin:0 0 10px}.warmup{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.warmup .item{background:#f8fafc;border:1px solid var(--line);padding:10px;border-radius:12px;font-size:12px}.warmup .item b{display:block;margin-bottom:2px}
 .exercise-list{display:flex;flex-direction:column;gap:9px}.exercise{display:grid;grid-template-columns:minmax(170px,1.4fr) .7fr .8fr .6fr;gap:8px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:12px}.exercise .name{font-weight:850}.exercise .name small{display:block;color:var(--muted);font-weight:600;margin-top:3px;line-height:1.25}.exercise .cell .lbl{font-size:10px;text-transform:uppercase;color:var(--muted);font-weight:800}.exercise .cell .val{font-size:13px;font-weight:800;margin-top:2px}.tag{display:inline-block;border-radius:99px;padding:3px 6px;font-size:9px;text-transform:uppercase;letter-spacing:.06em;font-weight:900;background:#fff7ed;color:#9a3412;margin-left:6px;vertical-align:1px}
 .side-card{padding:15px;position:sticky;top:104px;height:max-content}.side-card h3{margin:0 0 10px;font-size:14px}.side-card .rule{font-size:12px;color:#475467;background:#f8fafc;border-radius:12px;padding:10px;margin-bottom:10px}.field{margin-top:10px}.field label{font-size:11px;font-weight:800;color:#475467;display:block;margin-bottom:5px}.field select,.field textarea,.field input[type=date]{width:100%;border:1px solid var(--line);border-radius:10px;background:white;padding:9px}.field textarea{min-height:88px;resize:vertical}.complete-btn{width:100%;border:0;border-radius:12px;background:var(--dark);color:white;padding:11px;font-weight:850;margin-top:10px}.complete-btn.done{background:var(--ok)}
@@ -104,7 +105,7 @@ body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent}
     </section>
 
     <section id="monthlyView" class="view">
-      <div class="section-head"><div><div class="eyebrow">Vista 2 · Calendario</div><h2 id="monthTitle">Mese</h2><p>Martedì = A · Giovedì = C opzionale · Sabato = B</p></div><div class="month-toolbar"><button class="mini-btn" onclick="shiftMonth(-1)">‹</button><select id="monthSelect" onchange="renderMonth(this.value)"></select><button class="mini-btn" onclick="shiftMonth(1)">›</button></div></div>
+      <div class="section-head"><div><div class="eyebrow">Vista 2 · Calendario</div><h2 id="monthTitle">Mese</h2><p>Martedì = A · Giovedì = C opzionale · Sabato = B</p></div><div class="month-toolbar"><button class="mini-btn" onclick="openCustomWorkoutModal()">＋ Custom</button><button class="mini-btn" onclick="shiftMonth(-1)">‹</button><select id="monthSelect" onchange="renderMonth(this.value)"></select><button class="mini-btn" onclick="shiftMonth(1)">›</button></div></div>
       <div class="month-summary card"><div><strong id="monthPhase">—</strong><br><span id="monthStats">—</span></div><div class="progress-line"><b id="monthProgress"></b></div></div>
       <div class="calendar" id="calendar"></div>
     </section>
@@ -114,6 +115,20 @@ body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent}
       <div id="workoutContent" class="workout-wrap"></div>
     </section>
   </main>
+</div>
+<div id="customWorkoutModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="customWorkoutTitle" onclick="if(event.target===this)closeCustomWorkoutModal()">
+  <div class="modal-card">
+    <h3 id="customWorkoutTitle">Workout custom</h3>
+    <p>Inserisci una seduta libera: comparirà nel calendario alla data indicata.</p>
+    <div class="field"><label>Data</label><input id="customWorkoutDate" type="date"></div>
+    <div class="field"><label>Note</label><textarea id="customWorkoutNotes" placeholder="Es. corsa 35 min Z2, mobilità, workout al parco, recupero attivo..."></textarea></div>
+    <input id="customWorkoutId" type="hidden">
+    <div class="modal-actions">
+      <button id="deleteCustomWorkoutBtn" class="danger" onclick="deleteCustomWorkout()" hidden>Elimina</button>
+      <button onclick="closeCustomWorkoutModal()">Annulla</button>
+      <button class="primary" onclick="saveCustomWorkout()">Salva</button>
+    </div>
+  </div>
 </div>
 <nav class="bottom-nav" aria-label="Navigazione mobile"><button data-view="today" onclick="showView('today')"><b>⌂</b>Oggi</button><button data-view="monthly" onclick="showView('monthly')"><b>▦</b>Mese</button><button data-view="annual" onclick="showView('annual')"><b>◫</b>Piano</button><button data-view="workout" onclick="openNextWorkout()"><b>●</b>Workout</button></nav>
 <script>
@@ -125,9 +140,10 @@ const addDays=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x};
 const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 const lerpInt=(a,b,p)=>Math.round(a+(b-a)*p);
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const escapeHtml=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 const storageKey='kb2027-v1';
-let state=JSON.parse(localStorage.getItem(storageKey)||'{"done":{},"notes":{},"rpe":{},"actualDates":{}}');
-state.done=state.done||{}; state.notes=state.notes||{}; state.rpe=state.rpe||{}; state.actualDates=state.actualDates||{};
+let state=JSON.parse(localStorage.getItem(storageKey)||'{"done":{},"notes":{},"rpe":{},"actualDates":{},"customWorkouts":[]}');
+state.done=state.done||{}; state.notes=state.notes||{}; state.rpe=state.rpe||{}; state.actualDates=state.actualDates||{}; state.customWorkouts=Array.isArray(state.customWorkouts)?state.customWorkouts:[];
 const save=()=>localStorage.setItem(storageKey,JSON.stringify(state));
 
 const phases=[
@@ -237,25 +253,53 @@ function rebuildMonthKeys(){
  const keys=new Set();
  for(let i=0;i<12;i++){const d=new Date(2026,8+i,1,12);keys.add(`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`)}
  Object.values(state.actualDates||{}).forEach(v=>{if(/^\d{4}-\d{2}-\d{2}$/.test(v))keys.add(v.slice(0,7))});
+ (state.customWorkouts||[]).forEach(c=>{if(c&&/^\d{4}-\d{2}-\d{2}$/.test(c.date||''))keys.add(c.date.slice(0,7))});
  monthKeys=[...keys].sort();
 }
 function populateMonths(selected){rebuildMonthKeys();const sel=document.getElementById('monthSelect');const keep=selected||sel.value||localStorage.getItem('kb2027-month');sel.innerHTML=monthKeys.map(k=>{const [y,m]=k.split('-').map(Number),d=new Date(y,m-1,1);return `<option value="${k}">${monthFmt(d)}</option>`}).join('');if(keep&&monthKeys.includes(keep))sel.value=keep}
 function sessionsForMonth(y,m){const arr=[];for(let w=1;w<=52;w++)for(const t of ['A','C','B']){const id=sessionId(w,t),d=sessionDate(w,t),planned=plannedSessionDate(w,t);if(d.getFullYear()===y&&d.getMonth()===m-1)arr.push({w,t,d,planned,id,moved:iso(d)!==iso(planned)})}return arr}
 function renderMonth(key){
  populateMonths(key); if(!key||!monthKeys.includes(key))key=monthKeys[0]; const [y,m]=key.split('-').map(Number); const first=new Date(y,m-1,1,12),last=new Date(y,m,0,12); const sessions=sessionsForMonth(y,m);
+ const custom=(state.customWorkouts||[]).filter(c=>c.date&&c.date.slice(0,7)===key).sort((a,b)=>a.date.localeCompare(b.date));
  document.getElementById('monthSelect').value=key;document.getElementById('monthTitle').textContent=monthFmt(first)[0].toUpperCase()+monthFmt(first).slice(1);
  const phaseNames=[...new Set(sessions.map(s=>phaseForWeek(s.w).name))];document.getElementById('monthPhase').textContent=phaseNames.join(' → ')||'Fuori programma';
- const core=sessions.filter(s=>s.t!=='C').length,done=sessions.filter(s=>state.done[s.id]).length;document.getElementById('monthStats').textContent=`${core} sedute core · ${sessions.filter(s=>s.t==='C').length} opzionali · ${done}/${sessions.length} completate`;
+ const core=sessions.filter(s=>s.t!=='C').length,done=sessions.filter(s=>state.done[s.id]).length;document.getElementById('monthStats').textContent=`${core} sedute core · ${sessions.filter(s=>s.t==='C').length} opzionali · ${custom.length} custom · ${done}/${sessions.length} programmate completate`;
  document.getElementById('monthProgress').style.width=(sessions.length?done/sessions.length*100:0)+'%';
  const cal=document.getElementById('calendar');let html=['Lun','Mar','Mer','Gio','Ven','Sab','Dom'].map(x=>`<div class="dow">${x}</div>`).join('');
  const startOffset=(first.getDay()+6)%7;const cells=Math.ceil((startOffset+last.getDate())/7)*7;
  const today=new Date();
  for(let i=0;i<cells;i++){
   const day=i-startOffset+1; const d=new Date(y,m-1,day,12); const inMonth=day>=1&&day<=last.getDate(); const ds=iso(d); const todays=inMonth&&iso(today)===ds;
-  const ss=inMonth?sessions.filter(s=>iso(s.d)===ds):[];
-  html+=`<div class="day ${inMonth?'':'muted'} ${todays?'today':''}"><div class="daynum">${d.getDate()}</div>${ss.map(s=>{const wd=workoutData(s.w,s.t),done=!!state.done[s.id];return `<button class="session-chip ${done?'done':''} ${s.t==='C'?'opt':''}" aria-label="Workout ${s.t}, settimana ${s.w}: ${done?'completato':'da completare'}" onclick="openWorkout(${s.w},'${s.t}')"><span class="phase-dot ${done?'done':''}" title="${done?'Completato':'Da completare'}"></span>${s.t} · W${s.w}<small>${wd.title.replace(/^. · /,'')}${s.moved?` · spostato dal ${fmtShort(s.planned)}`:''}</small></button>`}).join('')}</div>`;
+  const ss=inMonth?sessions.filter(s=>iso(s.d)===ds):[]; const cc=inMonth?custom.filter(c=>c.date===ds):[];
+  const scheduledHtml=ss.map(s=>{const wd=workoutData(s.w,s.t),done=!!state.done[s.id];return `<button class="session-chip ${done?'done':''} ${s.t==='C'?'opt':''}" aria-label="Workout ${s.t}, settimana ${s.w}: ${done?'completato':'da completare'}" onclick="openWorkout(${s.w},'${s.t}')"><span class="phase-dot ${done?'done':''}" title="${done?'Completato':'Da completare'}"></span>${s.t} · W${s.w}<small>${wd.title.replace(/^. · /,'')}${s.moved?` · spostato dal ${fmtShort(s.planned)}`:''}</small></button>`}).join('');
+  const customHtml=cc.map(c=>`<button class="session-chip custom-chip" aria-label="Workout custom del ${escapeHtml(c.date)}" onclick="openCustomWorkoutModal('${escapeHtml(c.id)}')"><span class="custom-dot"></span>Custom<small class="custom-note-preview">${escapeHtml(c.notes||'Workout libero')}</small></button>`).join('');
+  html+=`<div class="day ${inMonth?'':'muted'} ${todays?'today':''}"><div class="daynum">${d.getDate()}</div>${scheduledHtml}${customHtml}</div>`;
  }
  cal.innerHTML=html; localStorage.setItem('kb2027-month',key);
+}
+function openCustomWorkoutModal(id=''){
+ const modal=document.getElementById('customWorkoutModal'),dateEl=document.getElementById('customWorkoutDate'),notesEl=document.getElementById('customWorkoutNotes'),idEl=document.getElementById('customWorkoutId'),del=document.getElementById('deleteCustomWorkoutBtn');
+ const item=id?(state.customWorkouts||[]).find(c=>c.id===id):null;
+ idEl.value=item?item.id:''; notesEl.value=item?item.notes:''; del.hidden=!item;
+ if(item)dateEl.value=item.date;
+ else{
+  const selected=document.getElementById('monthSelect')?.value||localStorage.getItem('kb2027-month')||iso(new Date()).slice(0,7);
+  const today=iso(new Date()); dateEl.value=today.startsWith(selected)?today:`${selected}-01`;
+ }
+ modal.classList.add('show'); window.setTimeout(()=>dateEl.focus(),50);
+}
+function closeCustomWorkoutModal(){document.getElementById('customWorkoutModal')?.classList.remove('show')}
+function saveCustomWorkout(){
+ const date=document.getElementById('customWorkoutDate').value,notes=document.getElementById('customWorkoutNotes').value.trim(),id=document.getElementById('customWorkoutId').value;
+ if(!date){window.alert('Inserisci la data del workout custom.');return}
+ if(id){const item=state.customWorkouts.find(c=>c.id===id);if(item){item.date=date;item.notes=notes;item.updatedAt=new Date().toISOString()}}
+ else state.customWorkouts.push({id:`custom-${Date.now()}-${Math.random().toString(36).slice(2,7)}`,date,notes,createdAt:new Date().toISOString()});
+ save();closeCustomWorkoutModal();populateMonths(date.slice(0,7));renderMonth(date.slice(0,7));
+}
+function deleteCustomWorkout(){
+ const id=document.getElementById('customWorkoutId').value;if(!id)return;
+ if(!window.confirm('Eliminare questo workout custom?'))return;
+ const old=state.customWorkouts.find(c=>c.id===id);state.customWorkouts=state.customWorkouts.filter(c=>c.id!==id);save();closeCustomWorkoutModal();populateMonths();renderMonth((old?.date||localStorage.getItem('kb2027-month')||currentProgramMonth()).slice(0,7));
 }
 function shiftMonth(delta){let key=document.getElementById('monthSelect').value,idx=monthKeys.indexOf(key);idx=clamp(idx+delta,0,monthKeys.length-1);renderMonth(monthKeys[idx])}
 function currentProgramMonth(){const n=new Date(),k=`${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,'0')}`;return monthKeys.includes(k)?k:monthKeys[0]}
@@ -326,7 +370,7 @@ async function restoreBackup(file){
   let restoredState=null;
   if(payload.data[storageKey]){
    restoredState=JSON.parse(payload.data[storageKey]);
-   if(!restoredState||typeof restoredState!=='object'||typeof restoredState.done!=='object'||typeof restoredState.notes!=='object'||typeof restoredState.rpe!=='object' || (restoredState.actualDates!==undefined&&typeof restoredState.actualDates!=='object'))throw new Error('Stato allenamenti non valido');
+   if(!restoredState||typeof restoredState!=='object'||typeof restoredState.done!=='object'||typeof restoredState.notes!=='object'||typeof restoredState.rpe!=='object' || (restoredState.actualDates!==undefined&&typeof restoredState.actualDates!=='object') || (restoredState.customWorkouts!==undefined&&!Array.isArray(restoredState.customWorkouts)))throw new Error('Stato allenamenti non valido');
   }
   const when=payload.exportedAt?new Date(payload.exportedAt).toLocaleString('it-IT'):'data non disponibile';
   if(!window.confirm(`Ripristinare il backup del ${when}? I progressi attuali sul dispositivo verranno sostituiti.`))return;
