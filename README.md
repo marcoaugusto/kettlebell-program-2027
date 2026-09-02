@@ -29,3 +29,6 @@ Conserva il file JSON in un luogo sicuro (ad esempio Drive/iCloud/Files).
 - Pallino verde: workout completato.
 - Lo stato si aggiorna automaticamente quando si torna alla vista mensile.
 
+
+## Data effettiva workout
+Ogni scheda workout consente di modificare la **Data effettiva**. Se la data viene cambiata, la seduta viene rimossa dalla data pianificata e visualizzata nella nuova data nella vista **Mese**. La data pianificata rimane visibile nella scheda e può essere ripristinata. Le date effettive sono incluse nel Backup/Restore JSON.
