@@ -178,7 +178,6 @@ const tech={
  'Reverse lunge rack':'Passo indietro stabile, ginocchio anteriore allineato, rack compatto.',
  'Band row / pull':'Scapole verso dietro e in basso; movimento controllato.',
  'Ab wheel':'Retroversione del bacino e addome attivo; fermati prima di inarcare la schiena.',
- 'Pull-up':'Partenza attiva di scapole, mento oltre la sbarra senza slancio.',
  'Double front squat':'Doppio rack solido, brace 360°, risalita senza perdere il busto.',
  'Double clean':'Zip verticale, ricezione morbida in rack, niente impatto sugli avambracci.',
  'Explosive push-up':'Spinta massima, poche reps di qualità, stop prima del calo di velocità.',
@@ -210,28 +209,28 @@ function workoutData(w,type){
   if(type==='C'){title='C · Easy aerobic';objective='Sviluppare base aerobica e recupero mantenendo intensità conversazionale.';duration=`${25+Math.min(5,(pw-1)*2)} min`;ex=[E('Easy run / run-walk',`${25+Math.min(5,(pw-1)*2)}′`,'Z2 / conversazionale','—','outdoor')];}
  }
  if(p.id===2){
-  if(type==='A'){const sets=lerpInt(5,7,q),reps=q<.35?2:3,sw=lerpInt(8,10,q);title='A · Press + hinge';objective='Costruire volume sul double clean & press e capacità esplosiva dell’hinge.';duration='40–50 min';ex=[E('Double clean & press',`${sets}×${reps}`,'2×16 kg','120–150″','doppio KB'),E('Pull-up',`${lerpInt(3,5,q)}×3–5`,'Corpo libero','90–120″','bodyweight'),E('Swing',`${sw}×10`,q>.65?'1×24 kg*':'1×20 kg','45–60″','mono KB','*24 kg solo se tecnica e 2–3 RIR restano solidi'),E('Ab wheel',`3×${lerpInt(6,8,q)}`,'Ruota','60″','ab wheel')];}
+  if(type==='A'){const sets=lerpInt(5,7,q),reps=q<.35?2:3,sw=lerpInt(8,10,q);title='A · Press + hinge';objective='Costruire volume sul double clean & press e capacità esplosiva dell’hinge.';duration='40–50 min';ex=[E('Double clean & press',`${sets}×${reps}`,'2×16 kg','120–150″','doppio KB'),E('One-arm row',`${lerpInt(3,4,q)}×6+6`,'1×16–20 kg','75–90″','mono KB'),E('Swing',`${sw}×10`,q>.65?'1×24 kg*':'1×20 kg','45–60″','mono KB','*24 kg solo se tecnica e 2–3 RIR restano solidi'),E('Ab wheel',`3×${lerpInt(6,8,q)}`,'Ruota','60″','ab wheel')];}
   if(type==='B'){title='B · Squat foundation';objective='Aumentare volume di squat e clean in doppio rack, mantenendo controllo e mobilità.';duration='40–50 min';ex=[E('Double front squat',`${q<.5?4:5}×${lerpInt(4,6,q)}`,'2×16 kg','120″','doppio KB'),E('Double clean',`${q<.5?4:5}×3`,'2×16 kg','90–120″','doppio KB'),E('TGU','3×1+1','1×16 kg','60–90″','mono KB'),E('Push-up',`3×${lerpInt(8,12,q)}`,'Corpo libero','60–75″','bodyweight')];}
   if(type==='C'){title='C · Hill sprint';objective='Inserire accelerazione e potenza degli arti inferiori con volume molto contenuto.';duration='20–30 min';ex=[E('Hill sprint','6×10–15″','Outdoor','90–120″','outdoor')];}
  }
  if(p.id===3){
-  if(type==='A'){title='A · Heavy strength';objective='Spingere la forza del double press mantenendo margine tecnico e qualità di ogni rep.';duration='40–50 min';ex=[E('Double clean & press',`${q<.55?6:5}×${q<.45?3:4}`,'2×16 kg','150″','doppio KB'),E('Pull-up','5×3–5','Corpo libero','120″','bodyweight'),E('Heavy swing',`${lerpInt(6,10,q)}×10`,'1×24 kg','60″','mono KB'),E('Ab wheel',`3×${lerpInt(6,10,q)}`,'Ruota','60″','ab wheel')];}
+  if(type==='A'){title='A · Heavy strength';objective='Spingere la forza del double press mantenendo margine tecnico e qualità di ogni rep.';duration='40–50 min';ex=[E('Double clean & press',`${q<.55?6:5}×${q<.45?3:4}`,'2×16 kg','150″','doppio KB'),E('One-arm row','5×6+6','1×20–24 kg','90–120″','mono KB'),E('Heavy swing',`${lerpInt(6,10,q)}×10`,'1×24 kg','60″','mono KB'),E('Ab wheel',`3×${lerpInt(6,10,q)}`,'Ruota','60″','ab wheel')];}
   if(type==='B'){title='B · Lower strength';objective='Sviluppare forza di squat e clean, introducendo gradualmente 2×20 kg solo quando il volume a 16 kg è solido.';duration='40–50 min';ex=[E('Double front squat',`5×${lerpInt(3,5,q)}`,q>.62?'2×20 kg*':'2×16 kg','120–150″','doppio KB','*se tutte le serie restano a 2–3 RIR'),E('Double clean','5×3',q>.62?'2×20 kg*':'2×16 kg','120″','doppio KB'),E('TGU','3×1+1',q>.7?'1×20 kg*':'1×16 kg','75–90″','mono KB'),E('Push-up',`3×${lerpInt(6,10,q)}`,'Corpo libero','60–75″','bodyweight')];}
   if(type==='C'){title='C · Easy conditioning';objective='Recupero attivo: mantenere la base aerobica senza sottrarre qualità alle sedute di forza.';duration='25–30 min';ex=[E('Easy run / run-walk','25–30′','Z2 / conversazionale','—','outdoor')];}
  }
  if(p.id===4){
-  if(type==='A'){title='A · Explosive';objective='Massimizzare velocità e intent esplosivo: poche reps, recupero sufficiente, nessun grind.';duration='35–45 min';ex=[E('Hard swing',`${lerpInt(6,8,q)}×10`,'1×24 kg','60–75″','mono KB'),E('Explosive push-up',`${lerpInt(6,8,q)}×3–5`,'Corpo libero','60–90″','bodyweight'),E('Double C&P',`${q<.5?4:5}×2`,'2×16 kg','120″','doppio KB'),E('Pull-up','3×3–5','Corpo libero','90–120″','bodyweight')];}
+  if(type==='A'){title='A · Explosive';objective='Massimizzare velocità e intent esplosivo: poche reps, recupero sufficiente, nessun grind.';duration='35–45 min';ex=[E('Hard swing',`${lerpInt(6,8,q)}×10`,'1×24 kg','60–75″','mono KB'),E('Explosive push-up',`${lerpInt(6,8,q)}×3–5`,'Corpo libero','60–90″','bodyweight'),E('Double C&P',`${q<.5?4:5}×2`,'2×16 kg','120″','doppio KB'),E('One-arm row','3×6+6','1×20–24 kg','75–90″','mono KB')];}
   if(type==='B'){title='B · Lower power';objective='Trasferire forza a salto, clean e squat rapidi mantenendo atterraggi e rack stabili.';duration='35–45 min';ex=[E('Broad jump','5×3','Corpo libero','90″','bodyweight'),E('Double clean','5×3','2×16 kg','90–120″','doppio KB'),E('Double front squat','5×3',q>.6?'2×20 kg*':'2×16 kg','120″','doppio KB'),E('TGU','2×1+1',q>.65?'1×20 kg*':'1×16 kg','75–90″','mono KB')];}
   if(type==='C'){title='C · Sprint + shuttle';objective='Allenare accelerazione e cambio di direzione mantenendo qualità elevata.';duration='25–35 min';ex=[E('Sprint 10–20 m + shuttle',`${lerpInt(8,12,q)} sprint totali`,'Outdoor','60–120″','outdoor')];}
  }
  if(p.id===5){
   const block=((pw-1)%4)+1;
-  if(type==='A'){title='A · Strength maintenance';objective='Mantenere i livelli di forza con volume essenziale mentre cresce la componente specifica di sprint.';duration='35–45 min';ex=[E('Double front squat','4×3','2×20 kg','120–150″','doppio KB'),E('Double clean & press',`4×${block===4?2:3}`,(pw>=7?'2×20 kg*':'2×16 kg'),'120–150″','doppio KB','*20 kg solo su doppie pulite, senza grind'),E('Pull-up','4×3–5','Corpo libero','90–120″','bodyweight'),E('Heavy swing','6×10',pw>=9?'1×32 kg*':'1×24 kg','60–75″','mono KB','*32 kg solo se disponibile e tecnica invariata'),E('Ab wheel','3×8–10','Ruota','60″','ab wheel')];}
+  if(type==='A'){title='A · Strength maintenance';objective='Mantenere i livelli di forza con volume essenziale mentre cresce la componente specifica di sprint.';duration='35–45 min';ex=[E('Double front squat','4×3','2×20 kg','120–150″','doppio KB'),E('Double clean & press',`4×${block===4?2:3}`,(pw>=7?'2×20 kg*':'2×16 kg'),'120–150″','doppio KB','*20 kg solo su doppie pulite, senza grind'),E('One-arm row','4×6+6','1×20–24 kg','90″','mono KB'),E('Heavy swing','6×10',pw>=9?'1×32 kg*':'1×24 kg','60–75″','mono KB','*32 kg solo se disponibile e tecnica invariata'),E('Ab wheel','3×8–10','Ruota','60″','ab wheel')];}
   if(type==='B'){title='B · Futsal power';objective='Sviluppare accelerazione, cambio direzione e repeated sprint ability in una seduta specifica.';duration='35–45 min';ex=[E('Double clean','4×3','2×16 kg','90″','doppio KB'),E('Sprint 10 m','4 reps','Outdoor','60–90″','outdoor'),E('Sprint 20 m','4 reps','Outdoor','90″','outdoor'),E('5-10-5 shuttle','4 reps','Outdoor','90–120″','outdoor'),E('Repeated sprint',`${pw<=4?4:pw<=8?5:6}×20 m`,'Outdoor','30″','outdoor')];}
   if(type==='C'){title='C · Specific / aerobic';objective='Usare calcetto come stimolo specifico oppure Z2 come recupero; scegliere in base alla fatica settimanale.';duration='25–60 min';ex=[E('Calcetto / easy run','40–60′ / 25–35′','Specifico / Z2','—','outdoor')];}
  }
  if(p.id===6){
-  if(type==='A'){title='A · Double KB complex';objective='Integrare clean, press e squat in un blocco denso ma tecnicamente controllato.';duration='35–45 min';const load=pw>=7?'2×20 kg*':'2×16 kg';ex=[E('Clean','2 reps',load,'—','doppio KB'),E('Press','2 reps',load,'—','doppio KB'),E('Front squat','3 reps',load,'—','doppio KB'),E('Complex completo','5 round',load,'120″ tra round','doppio KB','*passa a 2×20 solo quando 5 round a 16 kg sono solidi'),E('Pull-up','3×5','Corpo libero','90″','bodyweight'),E('Ab wheel','3×8','Ruota','60″','ab wheel')];}
+  if(type==='A'){title='A · Double KB complex';objective='Integrare clean, press e squat in un blocco denso ma tecnicamente controllato.';duration='35–45 min';const load=pw>=7?'2×20 kg*':'2×16 kg';ex=[E('Clean','2 reps',load,'—','doppio KB'),E('Press','2 reps',load,'—','doppio KB'),E('Front squat','3 reps',load,'—','doppio KB'),E('Complex completo','5 round',load,'120″ tra round','doppio KB','*passa a 2×20 solo quando 5 round a 16 kg sono solidi'),E('One-arm row','3×8+8','1×20–24 kg','75–90″','mono KB'),E('Ab wheel','3×8','Ruota','60″','ab wheel')];}
   if(type==='B'){title='B · Simple';objective='Allenamento essenziale di hinge, stabilità globale e spinta, facile da sostenere nel lungo periodo.';duration='35–45 min';ex=[E('Swing','10×10',pw>=9?'1×32 kg*':'1×24 kg','45–60″','mono KB'),E('TGU','5×1+1',pw>=9?'1×24 kg*':pw>=5?'1×20 kg':'1×16 kg','60–90″','mono KB'),E('Push-up','3×8–12','Corpo libero','60–75″','bodyweight')];}
   if(type==='C'){title='C · Free conditioning';objective='Mantenere varietà e aderenza con una seduta scelta tra calcetto, sprint leggeri o circuito al parco.';duration='25–45 min';ex=[E('Calcetto / sprint / parco','25–45′','Libero','—','outdoor')];}
  }
@@ -323,10 +322,37 @@ function openNextWorkout(){
  const now=new Date();let candidate=null; findNext: for(let w=1;w<=52;w++){for(const t of ['A','C','B']){const d=sessionDate(w,t);if(!state.done[`w${w}-${t}`]&&d>=new Date(now.getFullYear(),now.getMonth(),now.getDate(),0,0,0)){candidate={w,t};break findNext;}}}
  if(!candidate){candidate=JSON.parse(localStorage.getItem('kb2027-last')||'{"w":1,"t":"A"}')} openWorkout(candidate.w,candidate.t)
 }
-let timerHandle=null,timerRemaining=0;
-function startTimer(seconds){stopTimer(false);timerRemaining=seconds;paintTimer();timerHandle=setInterval(()=>{timerRemaining--;paintTimer();if(timerRemaining<=0){clearInterval(timerHandle);timerHandle=null;if(navigator.vibrate)navigator.vibrate([150,80,150]);}},1000)}
-function stopTimer(reset=true){if(timerHandle)clearInterval(timerHandle);timerHandle=null;if(reset){timerRemaining=0;paintTimer()}}
-function paintTimer(){const el=document.getElementById('timerDisplay');if(!el)return;const m=Math.floor(timerRemaining/60),s=timerRemaining%60;el.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}
+let timerHandle=null,timerRemaining=0,timerZeroSignaled=false,timerAudioCtx=null;
+function ensureTimerAudio(){
+ try{
+  if(!timerAudioCtx){const AC=window.AudioContext||window.webkitAudioContext;if(AC)timerAudioCtx=new AC()}
+  if(timerAudioCtx&&timerAudioCtx.state==='suspended')timerAudioCtx.resume().catch(()=>{});
+ }catch(e){console.warn('Audio timer non disponibile',e)}
+}
+function playTimerBeep(at,duration=.11,frequency=880){
+ if(!timerAudioCtx)return;
+ try{
+  const osc=timerAudioCtx.createOscillator(),gain=timerAudioCtx.createGain();
+  osc.type='sine';osc.frequency.setValueAtTime(frequency,at);
+  gain.gain.setValueAtTime(0.0001,at);gain.gain.exponentialRampToValueAtTime(0.18,at+.01);gain.gain.exponentialRampToValueAtTime(0.0001,at+duration);
+  osc.connect(gain);gain.connect(timerAudioCtx.destination);osc.start(at);osc.stop(at+duration+.02);
+ }catch(e){console.warn('Beep timer non disponibile',e)}
+}
+function signalTimerZero(){
+ if(timerZeroSignaled)return;timerZeroSignaled=true;ensureTimerAudio();
+ if(timerAudioCtx){const base=timerAudioCtx.currentTime+.02;for(let i=0;i<5;i++)playTimerBeep(base+i*.22)}
+ if(navigator.vibrate)navigator.vibrate([120,90,120,90,120,90,120,90,120]);
+}
+function startTimer(seconds){
+ stopTimer(false);ensureTimerAudio();timerRemaining=seconds;timerZeroSignaled=false;paintTimer();
+ timerHandle=setInterval(()=>{timerRemaining--;paintTimer();if(timerRemaining===0)signalTimerZero()},1000)
+}
+function stopTimer(reset=true){if(timerHandle)clearInterval(timerHandle);timerHandle=null;if(reset){timerRemaining=0;timerZeroSignaled=false;paintTimer()}}
+function paintTimer(){
+ const el=document.getElementById('timerDisplay');if(!el)return;
+ const neg=timerRemaining<0,abs=Math.abs(timerRemaining),m=Math.floor(abs/60),s=abs%60;
+ el.textContent=(neg?'-':'')+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+}
 function programWeekForDate(d){const day=Math.floor((new Date(d.getFullYear(),d.getMonth(),d.getDate(),12)-START)/86400000);return clamp(Math.floor(day/7)+1,1,52)}
 function findNextSession(from=new Date()){const floor=new Date(from.getFullYear(),from.getMonth(),from.getDate(),0,0,0);for(let w=1;w<=52;w++){for(const t of ['A','C','B']){const d=sessionDate(w,t);if(!state.done[`w${w}-${t}`]&&d>=floor)return {w,t,d};}}return {w:52,t:'B',d:sessionDate(52,'B')}}
 function renderToday(){const now=new Date(),w=programWeekForDate(now),p=phaseForWeek(w),next=findNextSession(now),wd=workoutData(next.w,next.t);document.getElementById('todayDate').textContent=new Intl.DateTimeFormat('it-IT',{weekday:'long',day:'numeric',month:'long'}).format(now);document.getElementById('todayWorkoutTitle').textContent=(iso(next.d)===iso(now)?'Oggi · ':'Prossimo · ')+wd.title;document.getElementById('todayWorkoutObjective').textContent=`${fmtDate(next.d)} · ${wd.duration} · ${wd.objective}`;document.getElementById('todayWeek').textContent=`W${w}/52`;document.getElementById('todayPhase').textContent=p.id;const doneCore=Object.keys(state.done).filter(k=>state.done[k]&&/-(A|B)$/.test(k)).length;document.getElementById('todayDone').textContent=`${doneCore}/104`;document.getElementById('todayWeekSessions').innerHTML=['A','C','B'].map(t=>{const d=sessionDate(w,t),id=`w${w}-${t}`,data=workoutData(w,t),isDone=!!state.done[id],isNext=(next.w===w&&next.t===t);return `<button class="week-session ${isDone?'done':''} ${isNext?'next':''}" onclick="openWorkout(${w},'${t}')"><strong>${t} · ${new Intl.DateTimeFormat('it-IT',{weekday:'short'}).format(d)}</strong><span>${data.title.replace(/^. · /,'')}</span><span>${isDone?'✓ completato':fmtShort(d)}</span></button>`}).join('')}
