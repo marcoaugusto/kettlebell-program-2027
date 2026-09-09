@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111827'/%3E%3Cpath d='M23 23c0-12 18-12 18 0h-5c0-6-8-6-8 0zm-5 3h28l5 25H13z' fill='%23ea580c'/%3E%3C/svg%3E" />
-<title>Kettlebell 2027 program - v6</title>
+<title>Kettlebell 2027 program - v7</title>
 <style>
 :root{
   --bg:#f4f5f7; --panel:#ffffff; --panel2:#f8fafc; --text:#111827; --muted:#667085;
@@ -60,7 +60,7 @@ body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent}
 </style>
 </head>
 <body>
-<header class="hero"><div class="hero-inner"><div class="brand"><h1>Kettlebell 2027 program - v6</h1><p>Training Program · forza + conditioning + power</p><div class="app-status">PWA · offline · installabile</div></div><div class="hero-actions"><button class="ghost" onclick="goToday()">Oggi</button><button class="ghost" onclick="window.print()">Stampa annuale</button></div></div></header>
+<header class="hero"><div class="hero-inner"><div class="brand"><h1>Kettlebell 2027 program - v7</h1><p>Training Program · forza + conditioning + power</p><div class="app-status">PWA · offline · installabile</div></div><div class="hero-actions"><button class="ghost" onclick="goToday()">Oggi</button><button class="ghost" onclick="window.print()">Stampa annuale</button></div></div></header>
 <div class="app">
   <main class="content">
     <nav class="top-nav" aria-label="Viste"><button data-view="today" onclick="showView('today')">Oggi</button><button data-view="annual" onclick="showView('annual')">Annuale</button><button data-view="monthly" onclick="showView('monthly')">Mensile</button><button data-view="workout" onclick="openNextWorkout()">Workout</button></nav>
@@ -322,32 +322,56 @@ function openNextWorkout(){
  const now=new Date();let candidate=null; findNext: for(let w=1;w<=52;w++){for(const t of ['A','C','B']){const d=sessionDate(w,t);if(!state.done[`w${w}-${t}`]&&d>=new Date(now.getFullYear(),now.getMonth(),now.getDate(),0,0,0)){candidate={w,t};break findNext;}}}
  if(!candidate){candidate=JSON.parse(localStorage.getItem('kb2027-last')||'{"w":1,"t":"A"}')} openWorkout(candidate.w,candidate.t)
 }
-let timerHandle=null,timerRemaining=0,timerZeroSignaled=false,timerAudioCtx=null;
-function ensureTimerAudio(){
+let timerHandle=null,timerRemaining=0,timerZeroSignaled=false,timerAudioCtx=null,timerAudioReady=false,timerTargetMs=null;
+async function unlockTimerAudio(){
  try{
-  if(!timerAudioCtx){const AC=window.AudioContext||window.webkitAudioContext;if(AC)timerAudioCtx=new AC()}
-  if(timerAudioCtx&&timerAudioCtx.state==='suspended')timerAudioCtx.resume().catch(()=>{});
- }catch(e){console.warn('Audio timer non disponibile',e)}
+  const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return false;
+  if(!timerAudioCtx)timerAudioCtx=new AC({latencyHint:'interactive'});
+  if(timerAudioCtx.state==='suspended')await timerAudioCtx.resume();
+  // Avvia una sorgente praticamente silenziosa durante il tap dell'utente.
+  // Questo sblocca Web Audio nelle PWA/Chrome Android per i beep successivi.
+  const buffer=timerAudioCtx.createBuffer(1,1,timerAudioCtx.sampleRate);
+  const source=timerAudioCtx.createBufferSource(),gain=timerAudioCtx.createGain();
+  source.buffer=buffer;gain.gain.value=0.0001;source.connect(gain);gain.connect(timerAudioCtx.destination);source.start();
+  timerAudioReady=timerAudioCtx.state==='running';
+  return timerAudioReady;
+ }catch(e){console.warn('Audio timer non disponibile',e);timerAudioReady=false;return false}
 }
-function playTimerBeep(at,duration=.11,frequency=880){
- if(!timerAudioCtx)return;
+function playTimerBeep(at,duration=.14,frequency=1046.5){
+ if(!timerAudioCtx||timerAudioCtx.state!=='running')return;
  try{
   const osc=timerAudioCtx.createOscillator(),gain=timerAudioCtx.createGain();
-  osc.type='sine';osc.frequency.setValueAtTime(frequency,at);
-  gain.gain.setValueAtTime(0.0001,at);gain.gain.exponentialRampToValueAtTime(0.18,at+.01);gain.gain.exponentialRampToValueAtTime(0.0001,at+duration);
-  osc.connect(gain);gain.connect(timerAudioCtx.destination);osc.start(at);osc.stop(at+duration+.02);
+  osc.type='square';osc.frequency.setValueAtTime(frequency,at);
+  gain.gain.setValueAtTime(0.0001,at);gain.gain.exponentialRampToValueAtTime(0.28,at+.012);gain.gain.exponentialRampToValueAtTime(0.0001,at+duration);
+  osc.connect(gain);gain.connect(timerAudioCtx.destination);osc.start(at);osc.stop(at+duration+.03);
  }catch(e){console.warn('Beep timer non disponibile',e)}
 }
-function signalTimerZero(){
- if(timerZeroSignaled)return;timerZeroSignaled=true;ensureTimerAudio();
- if(timerAudioCtx){const base=timerAudioCtx.currentTime+.02;for(let i=0;i<5;i++)playTimerBeep(base+i*.22)}
- if(navigator.vibrate)navigator.vibrate([120,90,120,90,120,90,120,90,120]);
+async function signalTimerZero(){
+ if(timerZeroSignaled)return;timerZeroSignaled=true;
+ try{
+  if(timerAudioCtx&&timerAudioCtx.state==='suspended')await timerAudioCtx.resume();
+  if(timerAudioCtx&&timerAudioCtx.state==='running'){
+   const base=timerAudioCtx.currentTime+.05;
+   for(let i=0;i<5;i++)playTimerBeep(base+i*.27,.14,i===4?1318.5:1046.5);
+  }
+ }catch(e){console.warn('Segnale timer non disponibile',e)}
+ if(navigator.vibrate)navigator.vibrate([150,100,150,100,150,100,150,100,220]);
 }
-function startTimer(seconds){
- stopTimer(false);ensureTimerAudio();timerRemaining=seconds;timerZeroSignaled=false;paintTimer();
- timerHandle=setInterval(()=>{timerRemaining--;paintTimer();if(timerRemaining===0)signalTimerZero()},1000)
+async function startTimer(seconds){
+ stopTimer(false);
+ await unlockTimerAudio();
+ timerRemaining=seconds;timerTargetMs=Date.now()+seconds*1000;timerZeroSignaled=false;paintTimer();
+ timerHandle=setInterval(()=>{
+  const delta=timerTargetMs-Date.now();
+  timerRemaining=delta>0?Math.ceil(delta/1000):-Math.floor((-delta)/1000);
+  paintTimer();
+  if(delta<=0&&!timerZeroSignaled)signalTimerZero();
+ },250);
 }
-function stopTimer(reset=true){if(timerHandle)clearInterval(timerHandle);timerHandle=null;if(reset){timerRemaining=0;timerZeroSignaled=false;paintTimer()}}
+function stopTimer(reset=true){
+ if(timerHandle)clearInterval(timerHandle);timerHandle=null;timerTargetMs=null;
+ if(reset){timerRemaining=0;timerZeroSignaled=false;paintTimer()}
+}
 function paintTimer(){
  const el=document.getElementById('timerDisplay');if(!el)return;
  const neg=timerRemaining<0,abs=Math.abs(timerRemaining),m=Math.floor(abs/60),s=abs%60;

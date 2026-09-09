@@ -37,6 +37,6 @@ Ogni scheda workout consente di modificare la **Data effettiva**. Se la data vie
 
 Dalla vista **Mese** usa il pulsante **+ Custom** per inserire una seduta libera con data e note. Il workout viene salvato localmente, appare nel giorno indicato del calendario ed è incluso nel Backup/Restore JSON. Toccando il workout custom dal calendario è possibile modificarlo o eliminarlo.
 
-## Release v6
+## Release v7
 - Timer recupero: 5 beep allo zero e conteggio negativo fino a Stop.
 - Pull-up sostituiti con One-arm row a kettlebell in tutto il programma, coerente con il setup disponibile.
