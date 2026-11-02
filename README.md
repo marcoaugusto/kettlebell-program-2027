@@ -1,42 +1,19 @@
-# Kettlebell 2027 PWA
+# Kettlebell 2027 Training Program — v14
 
-Progressive Web App statica e offline-first per il programma annuale Kettlebell 2027.
+PWA offline/mobile per il programma annuale Kettlebell 2027.
 
-## File
+## Change request v14
 
-- `index.html` — applicazione completa.
-- `manifest.webmanifest` — metadata PWA e icone.
-- `sw.js` — service worker per uso offline.
-- `icons/` — icone Android/iOS, inclusa maskable icon.
-- `.nojekyll` — pubblicazione statica diretta su GitHub Pages.
-- `GUIDA_GITHUB_PAGES.md` — guida operativa al deploy e all'installazione sul telefono.
+- Tutti i workout fino al 02/11/2026 restano invariati rispetto alla v12.
+- Dal 03/11/2026: A = HOME martedì, B = OUTDOOR giovedì, C = HOME sabato/weekend.
+- Priorità se si eseguono 2 workout: novembre–gennaio A+C; da febbraio A+B.
+- Target Double Clean & Press: 5×3 @2×20 kg con tecnica stabile, ~2 RIR e RPE ≤8.
+- Band Row eliminato dal nuovo programma.
+- One-arm KB Row e Two-arm KB Row alternati con progressioni dedicate.
+- Double Jerk incluso; Single KB Olympic / Half Snatch introdotto da marzo.
+- B da febbraio è outdoor senza kettlebell.
+- Timer, beep, serie tracker, date effettive, note, note precedente workout, custom workout, backup/restore e layout restano attivi.
 
-## Dati personali dell'app
+## Aggiornamento GitHub Pages
 
-Completamenti, RPE, note e preferenze sono salvati nel `localStorage` del browser sul singolo dispositivo. Non vengono caricati nel repository GitHub né inviati a un server.
-
-## Backup / Restore JSON
-
-Dalla Home dell’app:
-
-- **Backup JSON** scarica un file `kettlebell-2027-backup-YYYY-MM-DD.json` con tutti i dati locali dell’app.
-- **Ripristina** permette di selezionare quel file su questo o su un altro dispositivo.
-- Il restore sostituisce i dati locali `kb2027-*` presenti sul dispositivo; l’app chiede conferma prima di procedere.
-
-Conserva il file JSON in un luogo sicuro (ad esempio Drive/iCloud/Files).
-## Stato workout nel calendario
-- Pallino rosso: workout pianificato / da completare.
-- Pallino verde: workout completato.
-- Lo stato si aggiorna automaticamente quando si torna alla vista mensile.
-
-
-## Data effettiva workout
-Ogni scheda workout consente di modificare la **Data effettiva**. Se la data viene cambiata, la seduta viene rimossa dalla data pianificata e visualizzata nella nuova data nella vista **Mese**. La data pianificata rimane visibile nella scheda e può essere ripristinata. Le date effettive sono incluse nel Backup/Restore JSON.
-
-## Workout custom
-
-Dalla vista **Mese** usa il pulsante **+ Custom** per inserire una seduta libera con data e note. Il workout viene salvato localmente, appare nel giorno indicato del calendario ed è incluso nel Backup/Restore JSON. Toccando il workout custom dal calendario è possibile modificarlo o eliminarlo.
-
-## Release v7
-- Timer recupero: 5 beep allo zero e conteggio negativo fino a Stop.
-- Pull-up sostituiti con One-arm row a kettlebell in tutto il programma, coerente con il setup disponibile.
+Sostituire almeno `index.html` e `sw.js` nel repository e fare commit. Il service worker usa la cache `kb2027-pwa-v14`.
