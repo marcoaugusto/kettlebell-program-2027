@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111827'/%3E%3Cpath d='M23 23c0-12 18-12 18 0h-5c0-6-8-6-8 0zm-5 3h28l5 25H13z' fill='%23ea580c'/%3E%3C/svg%3E" />
-<title>Kettlebell 2027 program - v13</title>
+<title>Kettlebell 2027 program - v14</title>
 <style>
 :root{
   --bg:#f4f5f7; --panel:#ffffff; --panel2:#f8fafc; --text:#111827; --muted:#667085;
@@ -63,7 +63,7 @@ body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent}
 </style>
 </head>
 <body>
-<header class="hero"><div class="hero-inner"><div class="brand"><h1>Kettlebell 2027 program - v13</h1><p>Training Program · forza + conditioning + power</p><div class="app-status">PWA · offline · installabile</div></div><div class="hero-actions"><button class="ghost" onclick="goToday()">Oggi</button><button class="ghost" onclick="window.print()">Stampa annuale</button></div></div></header>
+<header class="hero"><div class="hero-inner"><div class="brand"><h1>Kettlebell 2027 program - v14</h1><p>Training Program · forza + conditioning + power</p><div class="app-status">PWA · offline · installabile</div></div><div class="hero-actions"><button class="ghost" onclick="goToday()">Oggi</button><button class="ghost" onclick="window.print()">Stampa annuale</button></div></div></header>
 <div class="app">
   <main class="content">
     <nav class="top-nav" aria-label="Viste"><button data-view="today" onclick="showView('today')">Oggi</button><button data-view="annual" onclick="showView('annual')">Annuale</button><button data-view="monthly" onclick="showView('monthly')">Mensile</button><button data-view="workout" onclick="openNextWorkout()">Workout</button></nav>
@@ -101,7 +101,7 @@ body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent}
         <tr><td>Double Front Squat</td><td>2×16 kg</td><td>2×20 kg</td><td>2×20 kg+</td></tr>
         <tr><td>Double Jerk</td><td>2×16 kg</td><td>2×16→20 kg</td><td>2×20 kg</td></tr>
         <tr><td>Swing</td><td>20 kg</td><td>24 kg</td><td>24–32 kg</td></tr>
-        <tr><td>Olympic / Half Snatch</td><td>—</td><td>1×16 kg da marzo</td><td>1×20 kg</td></tr>
+        <tr><td>Single KB Dead Snatch</td><td>—</td><td>1×16 kg da marzo</td><td>1×20 kg</td></tr>
         <tr><td>Row</td><td>1×20 / 2×16 kg</td><td>Alternanza One-arm / Two-arm</td><td>1×24 / 2×20 kg</td></tr>
       </tbody></table></div>
       <div class="source-note"><b>Dal 03/11/2026:</b> priorità a Double C&amp;P 5×3 @2×20 kg, forza relativa, power, accelerazione 5–20 m, COD e repeated sprint ability. Aumentare volume o carico solo con tecnica pulita, RPE ≤8 e almeno 2 RIR; circa ogni quarta settimana ridurre il volume del 30–40%.</div>
@@ -198,7 +198,7 @@ const phases=[
  {id:3,name:'C&P Base · Nov–Dec',weeks:9,color:'var(--p3)',objective:'Volume sul Double Clean & Press, row alternati e base atletica.',focus:['2×16 C&P','Row','Outdoor base'],start:10,end:18},
  {id:4,name:'Intro 2×20 · Jan',weeks:4,color:'var(--p4)',objective:'Introduzione progressiva del Double C&P con 2×20 kg.',focus:['Heavy singles/doubles','Back-off','Jerk'],start:19,end:22},
  {id:5,name:'Strength + Acceleration',weeks:8,color:'var(--p5)',objective:'Consolidare 2×20 kg e sviluppare accelerazione/COD.',focus:['C&P','Sprint','COD'],start:23,end:30},
- {id:6,name:'Target + RSA · Apr–May',weeks:9,color:'var(--p6)',objective:'Raggiungere 5×3 @2×20 e introdurre repeated sprint.',focus:['Target C&P','RSA','Jerk/Snatch'],start:31,end:39},
+ {id:6,name:'Target + RSA · Apr–May',weeks:9,color:'var(--p6)',objective:'Raggiungere 5×3 @2×20 e introdurre repeated sprint.',focus:['Target C&P','RSA','Jerk/Dead Snatch'],start:31,end:39},
  {id:7,name:'Consolidation · Jun–Jul',weeks:9,color:'var(--p3)',objective:'Consolidare forza e transfer al calcio a 5.',focus:['Maintenance','4-week outdoor cycle','Power'],start:40,end:48},
  {id:8,name:'August Maintenance',weeks:4,color:'var(--p2)',objective:'Volume moderato e mantenimento di forza, power e conditioning.',focus:['C&P','Sprint/Z2','Power'],start:49,end:52}
 ];
@@ -253,7 +253,7 @@ const tech={
  'Two-arm KB Row':'Hinge stabile, core attivo, schiena neutra, tirare entrambi i kettlebell senza estendere il tronco.',
  'Double Clean & Press':'Clean prima di ogni press; tecnica stabile, niente grinding e nessuna compensazione lombare.',
  'Double Jerk':'Dip verticale e drive esplosivo; ricezione stabile. Interrompere se la velocità cala chiaramente.',
- 'Single KB Olympic / Half Snatch':'Ritorno controllato al rack; no drop diretto dall’overhead.',
+ 'Single KB Dead Snatch':'Partire da dead stop; hip drive esplosivo; lockout overhead stabile; ritorno controllato al rack e poi a terra. Resettare prima di ogni rep. No drop diretto dall’overhead. Obiettivo: power / rate of force development / coordinazione. Stop se velocità, lockout, traiettoria o tecnica peggiorano.',
  'Double Front Rack Reverse Lunge':'Rack compatto, passo indietro stabile, ginocchio anteriore allineato.',
  'Easy run':'Ritmo facile e respirazione controllata.',
  'Warm-up run':'Corsa facile progressiva, senza affaticamento.',
@@ -320,13 +320,21 @@ function legacyWorkoutData(w,type){
 function newPlanDeload(w){return [12,16,18,22,26,30,34,38,43,47,51].includes(w)}
 function newHomeSessionHasRow(w,type){
  if(w<10)return false;
- if(w<=18)return type==='A'||type==='C';
- if(w<=22)return type==='A'||(type==='C'&&[20,22].includes(w));
- if(w<=26)return type==='A';
- if(w<=30)return type==='A'||(type==='C'&&[28].includes(w));
- if(w<=39)return type==='A'||(type==='C'&&((w-31)%2===0));
- if(w<=48)return type==='C'&&((w-40)%2===0);
- return type==='C'&&((w-49)%2===1);
+ if(type==='A'){
+  if(w<=18)return (w-10)%2===0;             // Nov–Dic: Row ↔ Ab Wheel
+  if(w<=39)return w%2===0;                  // Gen–Mag: un solo complementare, Row a settimane alterne
+  return false;                             // Giu–Ago: A resta essenziale senza Row programmato
+ }
+ if(type==='C'){
+  if(w<=18)return true;
+  if(w<=22)return [20,22].includes(w);
+  if(w<=26)return false;
+  if(w<=30)return [28].includes(w);
+  if(w<=39)return (w-31)%2===0;
+  if(w<=48)return (w-40)%2===0;
+  return (w-49)%2===1;
+ }
+ return false;
 }
 function rowOccurrence(w,type){
  let total=0,variantCount=0;
@@ -373,16 +381,27 @@ function newWorkoutData(w,type){
  if(type==='A'){
   title='A · HOME · Double C&P Strength';objective='Forza relativa e progressione del Double Clean & Press verso 5×3 @2×20 kg, mantenendo tecnica pulita, RPE ≤8 e circa 2 RIR.';
   if(w<=18){
-   const [scheme,load]=cnpNovDec(w);ex=[E('Double Clean & Press',scheme,load,'90–150″','doppio KB'),E('Heavy Swing',deload?'4×10':'6–10×10',month===11?'1×20→24 kg':'1×24 kg','45–75″','mono KB')];withRow(ex,w,type);ex.push(E('Ab Wheel',deload?'2×6':'3×6–10','Ruota','60″','ab wheel'));
+   duration='25–32 min';
+   const [scheme,load]=cnpNovDec(w);ex=[E('Double Clean & Press',scheme,load,'90–150″','doppio KB'),E('Heavy Swing',deload?'4×10':'6–10×10',month===11?'1×20→24 kg':'1×24 kg','45–75″','mono KB')];
+   if(newHomeSessionHasRow(w,type))withRow(ex,w,type);else ex.push(E('Ab Wheel',deload?'2×6':'3×6–10','Ruota','60″','ab wheel'));
   }else if(w<=22){
-   const [scheme,load,backoff]=januaryCnp(w);ex=[E('Double Clean & Press',scheme,load,'120–150″','doppio KB',backoff!=='—'?`Back-off: ${backoff}`:'DELOAD'),E('Heavy Swing',deload?'4×10':'6–8×10','1×24 kg','60–75″','mono KB'),E('Ab Wheel',deload?'2×6':'3×6–8','Ruota','60″','ab wheel')];withRow(ex,w,type,'Se rientra nei 30–40 min');
+   duration='25–30 min';
+   const [scheme,load,backoff]=januaryCnp(w);ex=[E('Double Clean & Press',scheme,load,'120–150″','doppio KB',backoff!=='—'?`Back-off: ${backoff}`:'DELOAD'),E('Heavy Swing',deload?'4×10':'6–8×10','1×24 kg','60–75″','mono KB')];
+   if(newHomeSessionHasRow(w,type))withRow(ex,w,type);else ex.push(E('Ab Wheel',deload?'2×6':'3×6–8','Ruota','60″','ab wheel'));
   }else if(w<=30){
-   const [scheme,load]=febMarCnp(w);ex=[E('Double Clean & Press',scheme,load,'120–150″','doppio KB'),E('Double Front Squat',deload?'3×3':'4×3–5','2×20 kg','120″','doppio KB'),E('Ab Wheel',deload?'2×6':'3×6–10','Ruota','60″','ab wheel')];withRow(ex,w,type,'Complementare: non necessariamente insieme a squat e ab wheel');
+   duration='28–32 min';
+   const [scheme,load]=febMarCnp(w);ex=[E('Double Clean & Press',scheme,load,'120–150″','doppio KB'),E('Double Front Squat',deload?'3×3':'4×3–5','2×20 kg','120″','doppio KB')];
+   if(newHomeSessionHasRow(w,type))withRow(ex,w,type);else ex.push(E('Ab Wheel',deload?'2×6':'3×6–10','Ruota','60″','ab wheel'));
   }else if(w<=39){
-   ex=[E('Double Clean & Press',deload?'4×2 DELOAD':'5×3 → 6×3 se solido','2×20 kg','120–150″','doppio KB','6×3 solo con RPE ≤8 e almeno 2 RIR'),E('Double Front Squat',deload?'3×3':'4×3–5','2×20 kg','120″','doppio KB'),E('Ab Wheel',deload?'2×6':'3×8–10','Ruota','60″','ab wheel')];withRow(ex,w,type,'Quando previsto; mantenere circa 2 RIR');
+   duration='25–30 min';
+   ex=[E('Double Clean & Press',deload?'4×2 DELOAD':'5×3 → 6×3 se solido','2×20 kg','120–150″','doppio KB','6×3 solo con RPE ≤8 e almeno 2 RIR'),E('Double Front Squat',deload?'3×3':'4×3–5','2×20 kg','120″','doppio KB')];
+   if(newHomeSessionHasRow(w,type))withRow(ex,w,type,'Mantenere circa 2 RIR');else ex.push(E('Ab Wheel',deload?'2×6':'3×8–10','Ruota','60″','ab wheel'));
   }else if(w<=48){
-   ex=[E('Double Clean & Press',deload?'3×3':'4–5×3','2×20 kg','120–150″','doppio KB'),E('Double Front Squat',deload?'3×3':'4×3','2×20 kg','120″','doppio KB'),E('Heavy Swing',deload?'4×10':'5–6×10','1×24–32 kg','60–75″','mono KB'),E('Ab Wheel',deload?'2×6':'3×8','Ruota','60″','ab wheel')];duration='30–35 min';
+   duration='28–32 min';
+   ex=[E('Double Clean & Press',deload?'3×3':'4–5×3','2×20 kg','120–150″','doppio KB'),E('Double Front Squat',deload?'3×3':'4×3','2×20 kg','120″','doppio KB')];
+   if((w-40)%2===0)ex.push(E('Heavy Swing',deload?'4×10':'5–6×10','1×24–32 kg','60–75″','mono KB'));else ex.push(E('Ab Wheel',deload?'2×6':'3×8','Ruota','60″','ab wheel'));
   }else{
+   duration='25–30 min';
    ex=[E('Double Clean & Press',deload?'3×2':'4×2–3','2×20 kg','120–150″','doppio KB'),E('Double Front Squat',deload?'3×3':'4×3','2×20 kg','120″','doppio KB'),E('Ab Wheel',deload?'2×6':'3×8','Ruota','60″','ab wheel')];
   }
  }
@@ -411,12 +430,13 @@ function newWorkoutData(w,type){
   }
  }
  if(type==='C'){
-  title='C · HOME · KB Power / Athletic Strength';objective='Power con clean, jerk, swing, squat e Olympic / Half Snatch, mantenendo qualità e volume sostenibile nel weekend.';duration='30–40 min';
+  title='C · HOME · KB Power / Athletic Strength';objective='Power con clean, jerk, swing, squat e Single KB Dead Snatch, privilegiando qualità e velocità rispetto al volume.';duration='35–45 min';
   if(w<=18){
    const squatMap={10:['5×5','2×16 kg'],11:['5×6','2×16 kg'],12:['3×5 DELOAD','2×16 kg'],13:['5×3','2×20 kg'],14:['6×3','2×20 kg'],15:['6×3','2×20 kg'],16:['4×3 DELOAD','2×20 kg'],17:['5×3','2×20 kg'],18:['4×3 DELOAD','2×20 kg']};
    const [ss,sl]=squatMap[w]; ex=[E('Double Front Squat',ss,sl,'120″','doppio KB'),E('Double Clean',month===11?(deload?'3×3':'4–5×3'):(deload?'3×3':'3–5×3'),month===11?'2×16 kg':'2×20 kg*','90–120″','doppio KB',month===12?'*quando tecnicamente pronto':'')];
    if(month===12)ex.push(E('Double Jerk',w<=15?(deload?'3×3':'4–5×3'):(deload?'3×2':'4–5×2'),w<=15?'2×16 kg':'2×20 kg*','90–120″','doppio KB','*solo quando tecnicamente pronto; stop se la velocità cala'));
-   ex.push(E('Push-up',deload?'2×6–8':'3×6–12','Corpo libero','60–75″','bodyweight','Complementare: scegliere secondo necessità'));withRow(ex,w,type,'Complementare alternativo: scegliere secondo necessità');ex.push(E('Ab Wheel',deload?'2×6':'3×6–10','Ruota','60″','ab wheel','Complementare alternativo: non eseguire necessariamente tutti i complementari'));
+   ex.push(E('Push-up',deload?'2×6–8':'3×6–12','Corpo libero','60–75″','bodyweight','Complementare: scegliere secondo necessità'));
+   if(newHomeSessionHasRow(w,type))withRow(ex,w,type,'Complementare aggiuntivo; mantenere la seduta entro 45 min');else ex.push(E('Ab Wheel',deload?'2×6':'3×6–10','Ruota','60″','ab wheel','Complementare aggiuntivo; mantenere la seduta entro 45 min'));
   }else if(w<=22){
    ex=[E('Double Front Squat',deload?'3×3':'5×3–4','2×20 kg','120″','doppio KB'),E('Double Clean',deload?'3×3':'4×3','2×20 kg','90–120″','doppio KB'),E('Double Jerk',deload?'3×2':'4×2–3','2×16–20 kg','90–120″','doppio KB')];
    if(newHomeSessionHasRow(w,type))withRow(ex,w,type,'In alternativa ai Push-up');else ex.push(E('Push-up',deload?'2×8':'3×8–12','Corpo libero','60–75″','bodyweight','In alternativa al Row'));
@@ -425,20 +445,24 @@ function newWorkoutData(w,type){
     ex=[E('Double Clean',deload?'3×3':'4×3','2×20 kg','90–120″','doppio KB'),E('Double Jerk',deload?'3×2':'5×2–3','2×16–20 kg','90–120″','doppio KB'),E('Push-up',deload?'2×6':'3×6–10','Corpo libero','60–75″','bodyweight'),E('Swing',deload?'4×10':'5×10','1×24 kg','60″','mono KB')];
    }else{
     const snatchScheme=w<=28?'4×3+3':w===29?'5×3+3':'4×3+3 DELOAD';const snatchLoad=w<=29?'1×16 kg':'1×20 kg';
-    ex=[E('Single KB Olympic / Half Snatch',snatchScheme,snatchLoad,'75–90″','mono KB','Ritorno controllato al rack; no drop diretto dall’overhead.'),E('Goblet Squat',deload?'2×5':'3×5','1×20–24 kg','75–90″','mono KB')];
+    ex=[E('Single KB Dead Snatch',snatchScheme,snatchLoad,'75–90″','mono KB','Partire con il kettlebell da fermo. Hip drive esplosivo; lockout overhead stabile. Ritornare controllato al rack e quindi a terra; resettare prima della rep successiva. No drop diretto dall’overhead. Ogni rep parte da dead stop. Obiettivo: power / rate of force development / coordinazione. Interrompere se velocità, lockout, traiettoria o tecnica peggiorano.'),E('Goblet Squat',deload?'2×5':'3×5','1×20–24 kg','75–90″','mono KB')];
     if(newHomeSessionHasRow(w,type))withRow(ex,w,type,'Scegliere un solo complementare: Row oppure Push-up');else ex.push(E('Push-up',deload?'2×6':'3×6–10','Corpo libero','60–75″','bodyweight','Scegliere un solo complementare'));
    }
   }else if(w<=39){
    const c1=(w-31)%2===0;
    if(c1){ex=[E('Double Clean',deload?'3×3':'4×3','2×20 kg','90–120″','doppio KB'),E('Double Jerk',deload?'3×2':'5×2','2×20 kg','90–120″','doppio KB'),E('Push-up',deload?'2×8':'3×8–12','Corpo libero','60–75″','bodyweight')];withRow(ex,w,type,'Secondo alternanza One-arm / Two-arm');}
-   else ex=[E('Single KB Olympic / Half Snatch',deload?'3×3+3':'5×3+3','1×16–20 kg','75–90″','mono KB','Ritorno controllato al rack; no drop diretto dall’overhead.'),E('Double Front Rack Reverse Lunge',deload?'2×4+4':'3×4+4','2×16 kg','90″','doppio KB'),E('Swing',deload?'4×10':'5×10','1×24–32 kg','60–75″','mono KB'),E('Ab Wheel',deload?'2×6':'2–3×8','Ruota','60″','ab wheel')];
+   else ex=[E('Single KB Dead Snatch',deload?'3×3+3':'5×3+3','1×16–20 kg','75–90″','mono KB','Partire con il kettlebell da fermo. Hip drive esplosivo; lockout overhead stabile. Ritornare controllato al rack e quindi a terra; resettare prima della rep successiva. No drop diretto dall’overhead. Ogni rep parte da dead stop. Obiettivo: power / rate of force development / coordinazione. Interrompere se velocità, lockout, traiettoria o tecnica peggiorano.'),E('Double Front Rack Reverse Lunge',deload?'2×4+4':'3×4+4','2×16 kg','90″','doppio KB'),E('Swing',deload?'4×10':'5×10','1×24–32 kg','60–75″','mono KB'),E('Ab Wheel',deload?'2×6':'2–3×8','Ruota','60″','ab wheel')];
   }else if(w<=48){
    const power=(w-40)%2===0;
-   if(power){ex=[E('Double Jerk',deload?'3×2':'4×2–3','2×20 kg','90–120″','doppio KB'),E('Double Clean',deload?'3×3':'4×3','2×20 kg','90–120″','doppio KB'),E('Push-up',deload?'2×8':'3×8','Corpo libero','60–75″','bodyweight')];withRow(ex,w,type,'Se previsto; mantenere margine di almeno 2 RIR');}
-   else{ex=[E('Single KB Olympic / Half Snatch',deload?'3×3+3':'4–5×3+3','1×20 kg','75–90″','mono KB','Ritorno controllato al rack; no drop diretto dall’overhead.'),E('Swing',deload?'4×10':'5×10','1×24–32 kg','60–75″','mono KB')];}
+   if(power){
+    ex=[E('Double Clean',deload?'3×3':'4×3','2×20 kg','90–120″','doppio KB'),E('Double Jerk',deload?'3×2':'4×2–3','2×20 kg','90–120″','doppio KB'),E('Swing',deload?'4×10':'5×10','1×24–32 kg','60–75″','mono KB')];
+    if(newHomeSessionHasRow(w,type))withRow(ex,w,type,'Complementare; mantenere margine di almeno 2 RIR');else ex.push(E('Push-up',deload?'2×8':'3×8','Corpo libero','60–75″','bodyweight'));
+   }else{
+    ex=[E('Double Clean',deload?'3×3':'4×3','2×20 kg','90–120″','doppio KB'),E('Single KB Dead Snatch',deload?'3×3+3':'4–5×3+3','1×20 kg','75–90″','mono KB','Partire con il kettlebell da fermo. Hip drive esplosivo; lockout overhead stabile. Ritornare controllato al rack e quindi a terra; resettare prima della rep successiva. No drop diretto dall’overhead. Ogni rep parte da dead stop. Obiettivo: power / rate of force development / coordinazione. Se 20 kg riduce chiaramente velocità o qualità, mantenere 16 kg. Interrompere se velocità, lockout, traiettoria o tecnica peggiorano.'),E('Swing',deload?'4×10':'5×10','1×24–32 kg','60–75″','mono KB'),E('Ab Wheel',deload?'2×6':'2–3×8','Ruota','60″','ab wheel')];
+   }
   }else{
    const jerk=(w-49)%2===0;
-   ex=[jerk?E('Double Jerk',deload?'3×2':'4×2','2×20 kg','90–120″','doppio KB'):E('Single KB Olympic / Half Snatch',deload?'3×3+3':'4×3+3','1×20 kg','75–90″','mono KB','Ritorno controllato al rack; no drop diretto dall’overhead.'),E('Swing',deload?'4×10':'5×10','1×24–32 kg','60–75″','mono KB')];
+   ex=[jerk?E('Double Jerk',deload?'3×2':'4×2','2×20 kg','90–120″','doppio KB'):E('Single KB Dead Snatch',deload?'3×3+3':'4×3+3','1×20 kg','75–90″','mono KB','Partire con il kettlebell da fermo. Hip drive esplosivo; lockout overhead stabile. Ritornare controllato al rack e quindi a terra; resettare prima della rep successiva. No drop diretto dall’overhead. Ogni rep parte da dead stop. Obiettivo: power / rate of force development / coordinazione. Interrompere se velocità, lockout, traiettoria o tecnica peggiorano.'),E('Swing',deload?'4×10':'5×10','1×24–32 kg','60–75″','mono KB')];
    if(newHomeSessionHasRow(w,type))withRow(ex,w,type,'In alternativa ai Push-up');else ex.push(E('Push-up',deload?'2×8':'3×8–12','Corpo libero','60–75″','bodyweight','In alternativa al Row'));
   }
  }
