@@ -1,4 +1,4 @@
-const CACHE_NAME = "kb2027-pwa-v14";
+const CACHE_NAME = "kb2027-pwa-v14-range-series-1";
 const APP_SHELL = [
   "./",
   "./index.html",
