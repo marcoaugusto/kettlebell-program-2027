@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111827'/%3E%3Cpath d='M23 23c0-12 18-12 18 0h-5c0-6-8-6-8 0zm-5 3h28l5 25H13z' fill='%23ea580c'/%3E%3C/svg%3E" />
-<title>Kettlebell 2027 program - v14</title>
+<title>Kettlebell 2027 program - v15</title>
 <style>
 :root{
   --bg:#f4f5f7; --panel:#ffffff; --panel2:#f8fafc; --text:#111827; --muted:#667085;
@@ -63,7 +63,7 @@ body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent}
 </style>
 </head>
 <body>
-<header class="hero"><div class="hero-inner"><div class="brand"><h1>Kettlebell 2027 program - v14</h1><p>Training Program · forza + conditioning + power</p><div class="app-status">PWA · offline · installabile</div></div><div class="hero-actions"><button class="ghost" onclick="goToday()">Oggi</button><button class="ghost" onclick="window.print()">Stampa annuale</button></div></div></header>
+<header class="hero"><div class="hero-inner"><div class="brand"><h1>Kettlebell 2027 program - v15</h1><p>Training Program · forza + conditioning + power</p><div class="app-status">PWA · offline · installabile</div></div><div class="hero-actions"><button class="ghost" onclick="goToday()">Oggi</button><button class="ghost" onclick="window.print()">Stampa annuale</button></div></div></header>
 <div class="app">
   <main class="content">
     <nav class="top-nav" aria-label="Viste"><button data-view="today" onclick="showView('today')">Oggi</button><button data-view="annual" onclick="showView('annual')">Annuale</button><button data-view="monthly" onclick="showView('monthly')">Mensile</button><button data-view="workout" onclick="openNextWorkout()">Workout</button></nav>
@@ -267,6 +267,8 @@ const tech={
  'Two-arm KB Row':'Hinge stabile, core attivo, schiena neutra, tirare entrambi i kettlebell senza estendere il tronco.',
  'Double Clean & Press':'Clean prima di ogni press; tecnica stabile, niente grinding e nessuna compensazione lombare.',
  'Double Jerk':'Dip verticale e drive esplosivo; ricezione stabile. Interrompere se la velocità cala chiaramente.',
+ 'Double KB Dead Clean':'Partire con entrambi i kettlebell completamente fermi a terra. Ogni rep: dead stop → hip drive esplosivo → double clean → rack stabile → ritorno controllato a terra → reset. Schiena neutra, kettlebell vicini al corpo, clean silenzioso; evitare di tirare eccessivamente con le braccia. Obiettivo: power / forza esplosiva da fermo / rate of force development, non conditioning. Interrompere o aumentare il recupero se hip drive, rack o qualità esplosiva peggiorano; target circa RPE 7–8 e almeno 2 RIR.',
+ 'Single KB Dead Clean':'Ogni rep parte con il kettlebell completamente fermo a terra: dead stop → clean → rack stabile → ritorno controllato a terra → reset. Core attivo, hip drive esplosivo e rotazione del tronco minima. Non trasformarlo in un esercizio high-rep di conditioning. Interrompere o ridurre la serie se velocità, rack o tecnica peggiorano; target circa RPE 7–8 e almeno 2 RIR.',
  'Single KB Dead Snatch':'Partire da dead stop; hip drive esplosivo; lockout overhead stabile; ritorno controllato al rack e poi a terra. Resettare prima di ogni rep. No drop diretto dall’overhead. Obiettivo: power / rate of force development / coordinazione. Stop se velocità, lockout, traiettoria o tecnica peggiorano.',
  'Double Front Rack Reverse Lunge':'Rack compatto, passo indietro stabile, ginocchio anteriore allineato.',
  'Easy run':'Ritmo facile e respirazione controllata.',
@@ -388,6 +390,35 @@ function febMarCnp(w){
  const map={23:['6×2','2×20 kg'],24:['7×2','2×20 kg'],25:['5×2 + 2×3 back-off','2×20 kg + 2×16 kg'],26:['4×2 DELOAD','2×20 kg'],27:['6×2','2×20 kg'],28:['4×3','2×20 kg'],29:['5×3','2×20 kg'],30:['4×2 DELOAD','2×20 kg']};
  return map[w];
 }
+function deadCleanVariantForWeek(w){
+ // Solo Workout C futuri: il Dead Clean sostituisce lo slot Double Clean, non aggiunge volume.
+ // Nessuna modifica fino al 14/11/2026 incluso; W12 (21/11) resta DELOAD senza nuova variante.
+ const map={
+  13:{name:'Double KB Dead Clean',scheme:'4×3',load:'2×16 kg',setup:'doppio KB'},
+  15:{name:'Double KB Dead Clean',scheme:'5×3',load:'2×16 kg',setup:'doppio KB'},
+  19:{name:'Double KB Dead Clean',scheme:'4×3',load:'2×20 kg',setup:'doppio KB'},
+  21:{name:'Double KB Dead Clean',scheme:'5×3',load:'2×20 kg',setup:'doppio KB'},
+  24:{name:'Double KB Dead Clean',scheme:'4×3',load:'2×20 kg',setup:'doppio KB'},
+  27:{name:'Single KB Dead Clean',scheme:'3×4+4',load:'1×20 kg',setup:'mono KB'},
+  31:{name:'Double KB Dead Clean',scheme:'4×3',load:'2×20 kg',setup:'doppio KB'},
+  35:{name:'Single KB Dead Clean',scheme:'3×4+4',load:'1×20 kg',setup:'mono KB'},
+  39:{name:'Double KB Dead Clean',scheme:'4×3',load:'2×20 kg',setup:'doppio KB'},
+  42:{name:'Double KB Dead Clean',scheme:'4×3',load:'2×20 kg',setup:'doppio KB'},
+  46:{name:'Double KB Dead Clean',scheme:'4×3',load:'2×20 kg',setup:'doppio KB'},
+  48:{name:'Single KB Dead Clean',scheme:'3×4+4',load:'1×20 kg',setup:'mono KB'}
+ };
+ return map[w]||null;
+}
+function applyDeadCleanVariant(ex,w){
+ const cDate=plannedSessionDate(w,'C');
+ if(cDate<new Date(2026,10,15,12))return ex;
+ if(newPlanDeload(w))return ex;
+ if(ex.some(e=>e.name==='Single KB Dead Snatch'))return ex;
+ const variant=deadCleanVariantForWeek(w);if(!variant)return ex;
+ const idx=ex.findIndex(e=>e.name==='Double Clean');if(idx<0)return ex;
+ ex[idx]=E(variant.name,variant.scheme,variant.load,'60–90″',variant.setup,'Ogni ripetizione parte da dead stop; reset completo prima della rep successiva. Qualità e potenza > volume.');
+ return ex;
+}
 function newWorkoutData(w,type){
  const p=phaseForWeek(w), d=plannedSessionDate(w,type), month=d.getMonth()+1;
  let title='',objective='',duration='30–40 min',ex=[];
@@ -479,6 +510,7 @@ function newWorkoutData(w,type){
    ex=[jerk?E('Double Jerk',deload?'3×2':'4×2','2×20 kg','90–120″','doppio KB'):E('Single KB Dead Snatch',deload?'3×3+3':'4×3+3','1×20 kg','75–90″','mono KB','Partire con il kettlebell da fermo. Hip drive esplosivo; lockout overhead stabile. Ritornare controllato al rack e quindi a terra; resettare prima della rep successiva. No drop diretto dall’overhead. Ogni rep parte da dead stop. Obiettivo: power / rate of force development / coordinazione. Interrompere se velocità, lockout, traiettoria o tecnica peggiorano.'),E('Swing',deload?'4×10':'5×10','1×24–32 kg','60–75″','mono KB')];
    if(newHomeSessionHasRow(w,type))withRow(ex,w,type,'In alternativa ai Push-up');else ex.push(E('Push-up',deload?'2×8':'3×8–12','Corpo libero','60–75″','bodyweight','In alternativa al Row'));
   }
+  ex=applyDeadCleanVariant(ex,w);
  }
  return {title,objective,duration,ex,phase:p,pw:phaseWeek(w)};
 }
